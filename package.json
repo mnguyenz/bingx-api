@@ -1,35 +1,41 @@
 {
     "name": "bingx-trading-api",
-    "version": "0.0.3",
+    "version": "0.0.9",
     "description": "Bing X APIs helper",
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
     "scripts": {
-        "start": "ts-node src/index.ts"
+        "build": "tsup",
+        "lint": "eslint --config .eslintrc.json --ext ts . --fix"
     },
+    "keywords": [
+        "BingX",
+        "API",
+        "Crypto",
+        "Trading"
+    ],
+    "license": "MIT",
+    "author": "Minh Nguyen - mnguyen2606@gmail.com",
     "files": [
-        "index.js"
+        "dist"
     ],
     "repository": {
         "type": "git",
         "url": "https://github.com/devopshint/npm_project.git"
     },
-    "keywords": [
-        "npm",
-        "publish",
-        "package",
-        "registry"
-    ],
-    "author": {
-        "name": "Brad Garropy",
-        "email": "bradgarropy@gmail.com",
-        "url": "https://bradgarropy.com"
-    },
-    "license": "MIT",
     "bugs": {
         "url": "https://github.com/devopshint/npm_project/issues"
     },
     "homepage": "https://github.com/devopshint/npm_project#readme",
     "dependencies": {
+        "axios": "1.7.2",
         "ts-node": "10.9.2",
+        "tsup": "8.2.3",
         "typescript": "5.4.3"
+    },
+    "devDependencies": {
+        "eslint": "9.8.0",
+        "eslint-config-prettier": "9.1.0"
     }
 }

@@ -1,0 +1,1 @@
+export const SPOT_PLACE_ORDER_URL = '/openApi/spot/v1/trade/order';
