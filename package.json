@@ -1,10 +1,9 @@
 {
     "name": "bingx-trading-api",
-    "version": "0.0.1",
+    "version": "0.0.3",
     "description": "Bing X APIs helper",
-    "main": "index.js",
     "scripts": {
-        "start": "node index.js"
+        "start": "ts-node src/index.ts"
     },
     "files": [
         "index.js"
@@ -28,5 +27,9 @@
     "bugs": {
         "url": "https://github.com/devopshint/npm_project/issues"
     },
-    "homepage": "https://github.com/devopshint/npm_project#readme"
+    "homepage": "https://github.com/devopshint/npm_project#readme",
+    "dependencies": {
+        "ts-node": "10.9.2",
+        "typescript": "5.4.3"
+    }
 }
