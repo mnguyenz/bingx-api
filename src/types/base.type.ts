@@ -9,6 +9,6 @@ export type HttpRequestConfig = {
 
 export type BaseResponse = {
     code: number;
-    msg: string;
-    debugMsg: string;
+    msg?: string;
+    debugMsg?: string;
 };

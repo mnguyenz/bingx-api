@@ -22,3 +22,17 @@ export type SingleSymbolResponse = {
     apiStateSell: boolean;
     timeOnline: bigint;
 };
+
+export type SymbolPriceTickerResponse = {
+    timestamp: bigint;
+    data: SinglePriceTickerResponse[];
+} & BaseResponse;
+
+export type SinglePriceTickerResponse = {
+    symbol: string;
+    trades: {
+        tradeId: string;
+        price: number;
+        volume: number;
+    }[];
+};

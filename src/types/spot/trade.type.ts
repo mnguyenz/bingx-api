@@ -22,8 +22,20 @@ export type QueryOrderHistoryParams = {
 };
 
 export type PlaceOrderResponse = {
-    orderId: number;
-};
+    data: {
+        symbol: string;
+        orderId: bigint;
+        transactTime: bigint;
+        price: number;
+        origQty: number;
+        executedQty: number;
+        cummulativeQuoteQty: number;
+        status: OrderHistoryStatusEnum;
+        type: OrderTypeEnum;
+        side: OrderSideEnum;
+        clientOrderID: string;
+    };
+} & BaseResponse;
 
 export type QueryOrderHistoryResponse = {
     data?: {

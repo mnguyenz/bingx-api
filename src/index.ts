@@ -7,7 +7,8 @@ import {
     QueryOrderHistoryParams,
     QueryOrderHistoryResponse,
     SpotTradingSymbolsParams,
-    SpotTradingSymbolsResponse
+    SpotTradingSymbolsResponse,
+    SymbolPriceTickerResponse
 } from './types';
 
 export {
@@ -22,5 +23,6 @@ export {
     QueryAssetsResponse,
     SpotTradingSymbolsResponse,
     PlaceOrderResponse,
-    QueryOrderHistoryResponse
+    QueryOrderHistoryResponse,
+    SymbolPriceTickerResponse
 };
