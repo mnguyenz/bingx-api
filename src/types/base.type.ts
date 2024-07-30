@@ -6,3 +6,9 @@ export type HttpRequestConfig = {
     method: string;
     url: string;
 }
+
+export type BaseResponse = {
+    code: number;
+    msg: string;
+    debugMsg: string;
+}

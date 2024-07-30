@@ -24,6 +24,13 @@ export async function httpRequest(config: HttpRequestConfig) {
     }
 }
 
+export function removeEmptyValue(obj: object): object {
+    if (!(obj instanceof Object)) return {};
+    return Object.fromEntries(
+        Object.entries(obj).filter(([, value]) => value !== null && value !== undefined && value !== '')
+    );
+}
+
 export function buildQueryString(params: object): string {
     if (!params) return '';
     return Object.entries(params)

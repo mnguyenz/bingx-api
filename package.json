@@ -1,6 +1,6 @@
 {
     "name": "bingx-trading-api",
-    "version": "0.0.9",
+    "version": "1.0.0",
     "description": "Bing X APIs helper",
     "main": "./dist/index.js",
     "module": "./dist/index.mjs",
