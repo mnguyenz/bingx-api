@@ -11,3 +11,9 @@ export enum OrderTypeEnum {
     TRIGGER_LIMIT = 'TRIGGER_LIMIT',
     TRIGGER_MARKET = 'TRIGGER_MARKET'
 }
+
+export enum OrderHistoryStatusEnum {
+    FILLED = 'FILLED',
+    CANCELED = 'CANCELED',
+    FAILED = 'FAILED'
+}

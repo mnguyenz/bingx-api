@@ -1,5 +1,5 @@
-import axios from "axios";
-import { HttpRequestConfig } from "~types/base.type";
+import axios from 'axios';
+import { HttpRequestConfig } from '~types/base.type';
 
 export async function httpRequest(config: HttpRequestConfig) {
     try {
@@ -9,8 +9,10 @@ export async function httpRequest(config: HttpRequestConfig) {
             method,
             url,
             headers: {
+                // eslint-disable-next-line @typescript-eslint/naming-convention
                 'Content-Type': 'application/json',
-                'X-BX-APIKEY': apiKey,
+                // eslint-disable-next-line @typescript-eslint/naming-convention
+                'X-BX-APIKEY': apiKey
             }
         };
         const { data } = await axios.request(options);
@@ -33,9 +35,7 @@ export function removeEmptyValue(obj: object): object {
 
 export function buildQueryString(params: object): string {
     if (!params) return '';
-    return Object.entries(params)
-        .map(stringifyKeyValuePair)
-        .join('&');
+    return Object.entries(params).map(stringifyKeyValuePair).join('&');
 }
 
 function stringifyKeyValuePair([key, value]: [string, string]) {

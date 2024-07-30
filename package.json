@@ -1,13 +1,14 @@
 {
     "name": "bingx-trading-api",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Bing X APIs helper",
     "main": "./dist/index.js",
     "module": "./dist/index.mjs",
     "types": "./dist/index.d.ts",
     "scripts": {
         "build": "tsup",
-        "lint": "eslint --config .eslintrc.json --ext ts . --fix"
+        "lint": "eslint \"{src,apps,libs,test}/**/*.ts\"",
+        "check": "prettier --check \"src/**/*.ts\""
     },
     "keywords": [
         "BingX",
@@ -22,12 +23,9 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/devopshint/npm_project.git"
+        "url": "https://github.com/mnguyenz/bingx-api.git"
     },
-    "bugs": {
-        "url": "https://github.com/devopshint/npm_project/issues"
-    },
-    "homepage": "https://github.com/devopshint/npm_project#readme",
+    "homepage": "https://github.com/mnguyenz/bingx-api",
     "dependencies": {
         "axios": "1.7.2",
         "ts-node": "10.9.2",
@@ -35,7 +33,11 @@
         "typescript": "5.4.3"
     },
     "devDependencies": {
-        "eslint": "9.8.0",
-        "eslint-config-prettier": "9.1.0"
+        "@typescript-eslint/eslint-plugin": "7.9.0",
+        "@typescript-eslint/parser": "7.9.0",
+        "eslint": "8.56.0",
+        "eslint-config-prettier": "9.1.0",
+        "eslint-plugin-jest-formatting": "3.1.0",
+        "eslint-plugin-prettier": "5.1.3"
     }
 }

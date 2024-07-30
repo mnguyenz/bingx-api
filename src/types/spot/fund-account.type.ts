@@ -1,13 +1,13 @@
-import { BaseResponse } from "~types/base.type";
+import { BaseResponse } from '~types/base.type';
 
 export type QueryAssetsResponse = {
     data?: {
         balances: SingleQueryAssetResponse[];
-    }
-} & BaseResponse
+    };
+} & BaseResponse;
 
 export type SingleQueryAssetResponse = {
-    asset: string
-    free: number
-    locked: number
-}
+    asset: string;
+    free: number;
+    locked: number;
+};

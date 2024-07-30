@@ -1,15 +1,26 @@
-import { Spot } from "~spot";
-import { OrderTypeEnum, OrderSideEnum, SpotTradingSymbolsResponseStatusEnum } from "./enums";
-import { PlaceOrderParams, PlaceOrderResponse, QueryAssetsResponse, SpotTradingSymbolsParams, SpotTradingSymbolsResponse } from "./types";
+import { Spot } from '~spot';
+import { OrderTypeEnum, OrderSideEnum, SpotTradingSymbolsResponseStatusEnum, OrderHistoryStatusEnum } from './enums';
+import {
+    PlaceOrderParams,
+    PlaceOrderResponse,
+    QueryAssetsResponse,
+    QueryOrderHistoryParams,
+    QueryOrderHistoryResponse,
+    SpotTradingSymbolsParams,
+    SpotTradingSymbolsResponse
+} from './types';
 
 export {
     Spot,
     SpotTradingSymbolsResponseStatusEnum,
     OrderTypeEnum,
     OrderSideEnum,
-    QueryAssetsResponse,
+    OrderHistoryStatusEnum,
     SpotTradingSymbolsParams,
-    SpotTradingSymbolsResponse,
     PlaceOrderParams,
+    QueryOrderHistoryParams,
+    QueryAssetsResponse,
+    SpotTradingSymbolsResponse,
     PlaceOrderResponse,
+    QueryOrderHistoryResponse
 };

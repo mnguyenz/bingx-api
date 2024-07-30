@@ -1,4 +1,4 @@
-import { QueryAssetsResponse } from "~types";
+import { QueryAssetsResponse } from '~types';
 
 export interface FundAccountMethods {
     queryAssets(): Promise<QueryAssetsResponse>;

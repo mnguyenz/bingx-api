@@ -5,10 +5,10 @@ export type HttpRequestConfig = {
     apiKey: string;
     method: string;
     url: string;
-}
+};
 
 export type BaseResponse = {
     code: number;
     msg: string;
     debugMsg: string;
-}
+};

@@ -1,15 +1,15 @@
-import { SpotTradingSymbolsResponseStatusEnum } from "~enums";
-import { BaseResponse } from "~types/base.type";
+import { SpotTradingSymbolsResponseStatusEnum } from '~enums';
+import { BaseResponse } from '~types/base.type';
 
 export type SpotTradingSymbolsParams = {
     symbol?: string;
-}
+};
 
 export type SpotTradingSymbolsResponse = {
     data?: {
         symbols: SingleSymbolResponse[];
-    }
-} & BaseResponse
+    };
+} & BaseResponse;
 
 export type SingleSymbolResponse = {
     symbol: string;
@@ -21,4 +21,4 @@ export type SingleSymbolResponse = {
     apiStateBuy: boolean;
     apiStateSell: boolean;
     timeOnline: bigint;
-}
+};
