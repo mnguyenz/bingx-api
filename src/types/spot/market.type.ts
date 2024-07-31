@@ -20,7 +20,7 @@ export type SingleSymbolResponse = {
     status: SpotTradingSymbolsResponseStatusEnum;
     apiStateBuy: boolean;
     apiStateSell: boolean;
-    timeOnline: bigint;
+    timeOnline: number;
 };
 
 export type SymbolPriceTickerResponse = {

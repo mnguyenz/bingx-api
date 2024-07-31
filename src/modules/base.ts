@@ -1,7 +1,7 @@
-import { buildQueryString, httpRequest, removeEmptyValue } from 'src/helpers/utils';
 import * as crypto from 'crypto';
 import { mixinFundAccount, mixinMarket, mixinTrade } from '~modules';
 import { BASE_URL } from '~constants/url.constant';
+import { buildQueryString, httpRequest, removeEmptyValue } from '~helpers/utils';
 
 export const Base = mixinFundAccount(
     mixinMarket(
