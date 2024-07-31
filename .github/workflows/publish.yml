@@ -32,6 +32,10 @@ jobs:
         if: steps.version-updated.outputs.has-updated
         run: npm install
 
+      - name: Check
+        if: steps.version-updated.outputs.has-updated
+        run: npm run check
+
       - name: Lint
         if: steps.version-updated.outputs.has-updated
         run: npm run lint

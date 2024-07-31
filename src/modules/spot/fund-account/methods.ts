@@ -1,5 +1,4 @@
-import { QueryAssetsResponse } from '~types';
-import { AssetTransferRecordsResponse } from './responses.type';
+import { AssetTransferRecordsResponse, QueryAssetsResponse } from './responses.type';
 import { AssetTransferRecordsParams } from './params.type';
 
 export interface FundAccountMethods {

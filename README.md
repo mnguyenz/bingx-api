@@ -55,9 +55,12 @@ Or buy me a coffee
 Thank you so much for all the support
 ## Features
 
+[The list BingX supported APIs](https://bingx-api.github.io/docs/#/en-us/spot/changelog). I am implementing the ones I am using first, then the others later. Contact me at mnguyen2606@gmail.com if you need any specific APIs, and I will prioritize it. Thank you.
+
 - [x]   Spot Trading
     - [x]  Market
         - [x]   1. Spot Trading Symbols
+        - [x]   2. Recent Trades List
         - [x]   7. Symbol Price Ticker
     - [x]    Fund Acount
         - [x]   1.  Query Assets
@@ -65,3 +68,4 @@ Thank you so much for all the support
     - [x]  Trade
         - [x]   1. Place Order
         - [x]   9. Query Order History
+

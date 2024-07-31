@@ -1,14 +1,27 @@
-import { Constructor } from '~types/base.type';
 import { HttpMethodEnum } from '~enums/common.enum';
 import { MarketMethods } from './methods';
-import { SpotTradingSymbolsParams, SpotTradingSymbolsResponse, SymbolPriceTickerResponse } from '~types';
-import { SPOT_SYMBOL_PRICE_TICKER_URL, SPOT_TRADING_SYMBOLS_URL } from '~constants/url.constant';
+import {
+    SPOT_RECENT_TRADES_LIST_URL,
+    SPOT_SYMBOL_PRICE_TICKER_URL,
+    SPOT_TRADING_SYMBOLS_URL
+} from '~constants/url.constant';
+import { RecentTradesListParams, SpotTradingSymbolsParams } from './params.type';
+import { RecentTradesListResponse, SpotTradingSymbolsResponse, SymbolPriceTickerResponse } from './responses.type';
+import { Constructor } from '~helpers/base.type';
 
 export function mixinMarket<T extends Constructor>(base: T): Constructor<MarketMethods> & T {
     return class extends base {
         async spotTradingSymbols(params?: SpotTradingSymbolsParams): Promise<SpotTradingSymbolsResponse> {
             const url = this.preparePath(SPOT_TRADING_SYMBOLS_URL, {
                 symbol: params?.symbol?.toUpperCase()
+            });
+            return await this.makeRequest(HttpMethodEnum.GET, url);
+        }
+
+        async recentTradesList(params: RecentTradesListParams): Promise<RecentTradesListResponse> {
+            const url = this.preparePath(SPOT_RECENT_TRADES_LIST_URL, {
+                ...params,
+                symbol: params.symbol.toUpperCase()
             });
             return await this.makeRequest(HttpMethodEnum.GET, url);
         }

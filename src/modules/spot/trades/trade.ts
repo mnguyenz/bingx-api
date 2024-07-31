@@ -1,8 +1,9 @@
-import { Constructor } from '~types/base.type';
 import { TradeMethods } from './methods';
 import { SPOT_PLACE_ORDER_URL, SPOT_QUERY_ORDER_HISTORY_URL } from '~constants/url.constant';
-import { PlaceOrderParams, PlaceOrderResponse, QueryOrderHistoryParams, QueryOrderHistoryResponse } from '~types';
 import { HttpMethodEnum } from '~enums/common.enum';
+import { Constructor } from '~helpers/base.type';
+import { PlaceOrderParams, QueryOrderHistoryParams } from './params.type';
+import { PlaceOrderResponse, QueryOrderHistoryResponse } from './responses.type';
 
 export function mixinTrade<T extends Constructor>(base: T): Constructor<TradeMethods> & T {
     return class extends base {

@@ -1,10 +1,7 @@
 import { SpotTradingSymbolsResponseStatusEnum } from '~enums';
-import { BaseResponse } from '~types/base.type';
+import { BaseResponse } from '~helpers/base.type';
 
-export type SpotTradingSymbolsParams = {
-    symbol?: string;
-};
-
+// 1.
 export type SpotTradingSymbolsResponse = {
     data?: {
         symbols: SingleSymbolResponse[];
@@ -23,8 +20,21 @@ export type SingleSymbolResponse = {
     timeOnline: number;
 };
 
+// 2.
+export type RecentTradesListResponse = {
+    data?: SingleRecentTradeResponse[];
+} & BaseResponse;
+
+export type SingleRecentTradeResponse = {
+    id: number;
+    price: number;
+    qty: number;
+    time: bigint;
+    buyerMaker: boolean;
+};
+
+// 7.
 export type SymbolPriceTickerResponse = {
-    timestamp: bigint;
     data: SinglePriceTickerResponse[];
 } & BaseResponse;
 

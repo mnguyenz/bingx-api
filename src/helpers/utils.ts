@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { HttpRequestConfig } from '~types/base.type';
+import { HttpRequestConfig } from './base.type';
 
 export async function httpRequest(config: HttpRequestConfig) {
     try {

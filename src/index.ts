@@ -7,16 +7,19 @@ import {
     AssetTransferTypeEnum
 } from './enums';
 import {
+    AssetTransferRecordsParams,
+    AssetTransferRecordsResponse,
     PlaceOrderParams,
     PlaceOrderResponse,
     QueryAssetsResponse,
     QueryOrderHistoryParams,
     QueryOrderHistoryResponse,
+    RecentTradesListParams,
+    RecentTradesListResponse,
     SpotTradingSymbolsParams,
     SpotTradingSymbolsResponse,
     SymbolPriceTickerResponse
-} from './types';
-import { AssetTransferRecordsParams, AssetTransferRecordsResponse } from '~modules';
+} from '~modules';
 
 export {
     Spot,
@@ -26,10 +29,12 @@ export {
     OrderHistoryStatusEnum,
     AssetTransferTypeEnum,
     AssetTransferRecordsParams,
+    RecentTradesListParams,
     SpotTradingSymbolsParams,
     PlaceOrderParams,
     QueryOrderHistoryParams,
     AssetTransferRecordsResponse,
+    RecentTradesListResponse,
     QueryAssetsResponse,
     SpotTradingSymbolsResponse,
     PlaceOrderResponse,

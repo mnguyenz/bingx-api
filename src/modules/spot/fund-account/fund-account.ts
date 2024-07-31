@@ -1,10 +1,9 @@
-import { Constructor } from '~types/base.type';
 import { HttpMethodEnum } from '~enums/common.enum';
 import { FundAccountMethods } from './methods';
-import { QueryAssetsResponse } from '~types';
 import { SPOT_ASSET_TRANSFER_RECORDS_URL, SPOT_QUERY_ASSETS_URL } from '~constants/url.constant';
 import { AssetTransferRecordsParams } from './params.type';
-import { AssetTransferRecordsResponse } from './responses.type';
+import { AssetTransferRecordsResponse, QueryAssetsResponse } from './responses.type';
+import { Constructor } from '~helpers/base.type';
 
 export function mixinFundAccount<T extends Constructor>(base: T): Constructor<FundAccountMethods> & T {
     return class extends base {

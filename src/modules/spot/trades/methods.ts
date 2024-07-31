@@ -1,4 +1,5 @@
-import { PlaceOrderParams, PlaceOrderResponse, QueryOrderHistoryParams, QueryOrderHistoryResponse } from '~types';
+import { PlaceOrderParams, QueryOrderHistoryParams } from './params.type';
+import { PlaceOrderResponse, QueryOrderHistoryResponse } from './responses.type';
 
 export interface TradeMethods {
     placeOrder(params: PlaceOrderParams): Promise<PlaceOrderResponse>;

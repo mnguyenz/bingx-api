@@ -1,26 +1,7 @@
 import { OrderHistoryStatusEnum, OrderSideEnum, OrderTypeEnum } from '~enums';
-import { BaseResponse } from '~types/base.type';
+import { BaseResponse } from '~helpers/base.type';
 
-export type PlaceOrderParams = {
-    symbol: string;
-    side: OrderSideEnum;
-    type: OrderTypeEnum;
-    quantity?: number;
-    quoteOrderQty?: number;
-    price?: number;
-};
-
-export type QueryOrderHistoryParams = {
-    symbol?: string;
-    orderId?: number;
-    startTime?: bigint;
-    endTime?: bigint;
-    pageIndex?: number;
-    pageSize?: number;
-    status?: OrderHistoryStatusEnum;
-    type?: OrderTypeEnum;
-};
-
+// 1.
 export type PlaceOrderResponse = {
     data: {
         symbol: string;
@@ -37,6 +18,7 @@ export type PlaceOrderResponse = {
     };
 } & BaseResponse;
 
+// 9.
 export type QueryOrderHistoryResponse = {
     data?: {
         orders: SingleOrderHistoryResponse[];
