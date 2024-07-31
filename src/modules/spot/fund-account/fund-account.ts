@@ -2,7 +2,9 @@ import { Constructor } from '~types/base.type';
 import { HttpMethodEnum } from '~enums/common.enum';
 import { FundAccountMethods } from './methods';
 import { QueryAssetsResponse } from '~types';
-import { SPOT_QUERY_ASSETS_URL } from '~constants/url.constant';
+import { SPOT_ASSET_TRANSFER_RECORDS_URL, SPOT_QUERY_ASSETS_URL } from '~constants/url.constant';
+import { AssetTransferRecordsParams } from './params.type';
+import { AssetTransferRecordsResponse } from './responses.type';
 
 export function mixinFundAccount<T extends Constructor>(base: T): Constructor<FundAccountMethods> & T {
     return class extends base {
@@ -18,6 +20,21 @@ export function mixinFundAccount<T extends Constructor>(base: T): Constructor<Fu
                         locked: parseFloat(balance.locked)
                     }))
                 }
+            };
+            return parseResponse;
+        }
+
+        async assetTransferRecords(
+            assetTransferRecords: AssetTransferRecordsParams
+        ): Promise<AssetTransferRecordsResponse> {
+            const url = this.prepareSignedPath(SPOT_ASSET_TRANSFER_RECORDS_URL, assetTransferRecords);
+            const response = await this.makeRequest(HttpMethodEnum.GET, url);
+            const parseResponse = {
+                ...response,
+                rows: response?.rows?.map((row) => ({
+                    ...row,
+                    amount: parseFloat(row.amount)
+                }))
             };
             return parseResponse;
         }

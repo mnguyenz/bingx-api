@@ -1,5 +1,11 @@
 import { Spot } from '~spot';
-import { OrderTypeEnum, OrderSideEnum, SpotTradingSymbolsResponseStatusEnum, OrderHistoryStatusEnum } from './enums';
+import {
+    OrderTypeEnum,
+    OrderSideEnum,
+    SpotTradingSymbolsResponseStatusEnum,
+    OrderHistoryStatusEnum,
+    AssetTransferTypeEnum
+} from './enums';
 import {
     PlaceOrderParams,
     PlaceOrderResponse,
@@ -10,6 +16,7 @@ import {
     SpotTradingSymbolsResponse,
     SymbolPriceTickerResponse
 } from './types';
+import { AssetTransferRecordsParams, AssetTransferRecordsResponse } from '~modules';
 
 export {
     Spot,
@@ -17,9 +24,12 @@ export {
     OrderTypeEnum,
     OrderSideEnum,
     OrderHistoryStatusEnum,
+    AssetTransferTypeEnum,
+    AssetTransferRecordsParams,
     SpotTradingSymbolsParams,
     PlaceOrderParams,
     QueryOrderHistoryParams,
+    AssetTransferRecordsResponse,
     QueryAssetsResponse,
     SpotTradingSymbolsResponse,
     PlaceOrderResponse,
