@@ -9,6 +9,7 @@ import {
 import {
     AssetTransferRecordsParams,
     AssetTransferRecordsResponse,
+    OrderBookResponse,
     PlaceOrderParams,
     PlaceOrderResponse,
     QueryAssetsResponse,
@@ -39,5 +40,6 @@ export {
     SpotTradingSymbolsResponse,
     PlaceOrderResponse,
     QueryOrderHistoryResponse,
-    SymbolPriceTickerResponse
+    SymbolPriceTickerResponse,
+    OrderBookResponse
 };

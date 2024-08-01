@@ -3,7 +3,7 @@
 
 This library is an lightweight, easy, simple and clean connector to the [BingX Cryptocurrency Exchange API](https://bingx-api.github.io/docs/#/en-us/spot/changelog).
 
-Right now I'm focus on Spot API, I will try to complete other APIs later
+Right now I'm focus on Spot APIs, I will try to complete other APIs later
 ## Installation
 
 ```bash
@@ -19,11 +19,11 @@ const client = new Spot(API_KEY, API_SECRET);
 
 Make requests
 ```bash
-const spotTradingSymbol = await X_BINGX_CLIENT.spotTradingSymbols({ symbol });
+const spotTradingSymbol = await client.spotTradingSymbols({ symbol });
 
-const queryAssets = await X_BINGX_CLIENT.queryAssets();
+const queryAssets = await client.queryAssets();
 
-const symbolPriceTicker = await X_BINGX_CLIENT.symbolPriceTicker({ symbol });
+const symbolPriceTicker = await client.symbolPriceTicker({ symbol });
 
 ...
 ```
@@ -61,6 +61,7 @@ Thank you so much for all the support
     - [x]  Market
         - [x]   1. Spot Trading Symbols
         - [x]   2. Recent Trades List
+        - [x]   3. Order Book
         - [x]   7. Symbol Price Ticker
     - [x]    Fund Acount
         - [x]   1.  Query Assets

@@ -39,13 +39,6 @@ module.exports = {
                 skipComments: true
             }
         ],
-        'max-lines-per-function': [
-            'error',
-            {
-                max: 50,
-                skipComments: true
-            }
-        ],
         '@typescript-eslint/naming-convention': [
             'error',
             { selector: 'enumMember', format: ['UPPER_CASE'] },

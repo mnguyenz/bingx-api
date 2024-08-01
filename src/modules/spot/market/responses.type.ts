@@ -33,6 +33,15 @@ export type SingleRecentTradeResponse = {
     buyerMaker: boolean;
 };
 
+// 3.
+export type OrderBookResponse = {
+    data?: {
+        bids: number[][];
+        asks: number[][];
+        ts: bigint;
+    };
+} & BaseResponse;
+
 // 7.
 export type SymbolPriceTickerResponse = {
     data: SinglePriceTickerResponse[];
