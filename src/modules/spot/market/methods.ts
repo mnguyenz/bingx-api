@@ -1,5 +1,6 @@
-import { RecentTradesListParams, SpotTradingSymbolsParams } from './params.type';
+import { KlineCandlestickDataParams, RecentTradesListParams, SpotTradingSymbolsParams } from './params.type';
 import {
+    KlineCandlestickDataResponse,
     OrderBookResponse,
     RecentTradesListResponse,
     SpotTradingSymbolsResponse,
@@ -10,5 +11,6 @@ export interface MarketMethods {
     spotTradingSymbols(params?: SpotTradingSymbolsParams): Promise<SpotTradingSymbolsResponse>;
     recentTradesList(params: RecentTradesListParams): Promise<RecentTradesListResponse>;
     orderBook(params: RecentTradesListParams): Promise<OrderBookResponse>;
+    klineCandlestickData(params: KlineCandlestickDataParams): Promise<KlineCandlestickDataResponse>;
     symbolPriceTicker(params?: SpotTradingSymbolsParams): Promise<SymbolPriceTickerResponse>;
 }

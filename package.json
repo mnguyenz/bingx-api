@@ -1,7 +1,7 @@
 {
     "name": "bingx-trading-api",
-    "version": "1.0.6",
-    "description": "Bing X APIs helper",
+    "version": "1.0.7",
+    "description": "BingX Exchange APIs Connector using Typescript",
     "main": "./dist/index.js",
     "module": "./dist/index.mjs",
     "types": "./dist/index.d.ts",
@@ -13,10 +13,12 @@
     },
     "keywords": [
         "BingX",
+        "BingX API",
         "API",
         "Crypto",
         "Trading",
-        "BTC"
+        "BTC",
+        "Trading Bots"
     ],
     "license": "MIT",
     "author": "Minh Nguyen - mnguyen2606@gmail.com",

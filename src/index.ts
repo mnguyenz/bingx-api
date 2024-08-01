@@ -4,11 +4,14 @@ import {
     OrderSideEnum,
     SpotTradingSymbolsResponseStatusEnum,
     OrderHistoryStatusEnum,
-    AssetTransferTypeEnum
+    AssetTransferTypeEnum,
+    IntervalEnum
 } from './enums';
 import {
     AssetTransferRecordsParams,
     AssetTransferRecordsResponse,
+    KlineCandlestickDataParams,
+    KlineCandlestickDataResponse,
     OrderBookResponse,
     PlaceOrderParams,
     PlaceOrderResponse,
@@ -24,16 +27,24 @@ import {
 
 export {
     Spot,
+
+    // Enums
     SpotTradingSymbolsResponseStatusEnum,
     OrderTypeEnum,
     OrderSideEnum,
     OrderHistoryStatusEnum,
     AssetTransferTypeEnum,
+    IntervalEnum,
+
+    // Params
     AssetTransferRecordsParams,
     RecentTradesListParams,
     SpotTradingSymbolsParams,
     PlaceOrderParams,
     QueryOrderHistoryParams,
+    KlineCandlestickDataParams,
+
+    // Responses
     AssetTransferRecordsResponse,
     RecentTradesListResponse,
     QueryAssetsResponse,
@@ -41,5 +52,6 @@ export {
     PlaceOrderResponse,
     QueryOrderHistoryResponse,
     SymbolPriceTickerResponse,
-    OrderBookResponse
+    OrderBookResponse,
+    KlineCandlestickDataResponse
 };

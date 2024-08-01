@@ -1,13 +1,15 @@
 import { HttpMethodEnum } from '~enums/common.enum';
 import { MarketMethods } from './methods';
 import {
+    SPOT_KLINE_CANDLESTICK_DATA_URL,
     SPOT_ORDER_BOOK_URL,
     SPOT_RECENT_TRADES_LIST_URL,
     SPOT_SYMBOL_PRICE_TICKER_URL,
     SPOT_TRADING_SYMBOLS_URL
 } from '~constants/url.constant';
-import { RecentTradesListParams, SpotTradingSymbolsParams } from './params.type';
+import { KlineCandlestickDataParams, RecentTradesListParams, SpotTradingSymbolsParams } from './params.type';
 import {
+    KlineCandlestickDataResponse,
     OrderBookResponse,
     RecentTradesListResponse,
     SpotTradingSymbolsResponse,
@@ -53,6 +55,14 @@ export function mixinMarket<T extends Constructor>(base: T): Constructor<MarketM
             } else {
                 return response;
             }
+        }
+
+        async klineCandlestickData(params: KlineCandlestickDataParams): Promise<KlineCandlestickDataResponse> {
+            const url = this.preparePath(SPOT_KLINE_CANDLESTICK_DATA_URL, {
+                ...params,
+                symbol: params?.symbol?.toUpperCase()
+            });
+            return this.makeRequest(HttpMethodEnum.GET, url);
         }
 
         async symbolPriceTicker(params?: SpotTradingSymbolsParams): Promise<SymbolPriceTickerResponse> {

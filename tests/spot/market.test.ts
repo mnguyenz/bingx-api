@@ -1,4 +1,4 @@
-import { Spot } from './../../src/index';
+import { IntervalEnum, Spot } from './../../src/index';
 
 describe('SpotTradingSymbols', () => {
     const client = new Spot('', '');
@@ -85,6 +85,83 @@ describe('orderBook', () => {
         expect(res).toBeDefined();
         expect(res.code).toBe(100400);
         expect(res.msg).toBe('limit should less than 1000');
+        expect(res.data).toBeUndefined();
+    });
+});
+
+describe('klineCandlestickData', () => {
+    const client = new Spot('', '');
+
+    it('should return list 500 klines', async () => {
+        const res = await client.klineCandlestickData({ symbol: 'BTC-USDT', interval: IntervalEnum.DAY_1 });
+        expect(res).toBeDefined();
+        expect(res.data).toBeDefined();
+        expect(res.data.length).toBe(500);
+    });
+
+    it('should return list 10 klines', async () => {
+        const res = await client.klineCandlestickData({ symbol: 'BTC-USDT', interval: IntervalEnum.DAY_1, limit: 10 });
+        expect(res).toBeDefined();
+        expect(res.data).toBeDefined();
+        expect(res.data.length).toBe(10);
+    });
+
+    it('should return list max 1000 klines', async () => {
+        const res = await client.klineCandlestickData({
+            symbol: 'BTC-USDT',
+            interval: IntervalEnum.DAY_1,
+            limit: 10000
+        });
+        expect(res).toBeDefined();
+        expect(res.data).toBeDefined();
+        expect(res.data.length).toBe(1000);
+    });
+
+    it('should return data from startTime', async () => {
+        const res = await client.klineCandlestickData({
+            symbol: 'BTC-USDT',
+            interval: IntervalEnum.DAY_1,
+            startTime: BigInt(1722268800000)
+        });
+        expect(res).toBeDefined();
+        expect(res.data).toBeDefined();
+        expect(res.data[res.data.length - 1][0]).toBe(1722268800000);
+
+        const res2 = await client.klineCandlestickData({
+            symbol: 'BTC-USDT',
+            interval: IntervalEnum.DAY_1,
+            startTime: BigInt(1722268800001)
+        });
+        expect(res2).toBeDefined();
+        expect(res2.data).toBeDefined();
+        expect(res2.data[res2.data.length - 1][0]).toBe(1722355200000);
+    });
+
+    it('should return data till endTime', async () => {
+        const res = await client.klineCandlestickData({
+            symbol: 'BTC-USDT',
+            interval: IntervalEnum.DAY_1,
+            endTime: BigInt(1722268800000)
+        });
+        expect(res).toBeDefined();
+        expect(res.data).toBeDefined();
+        expect(res.data[0][0]).toBe(1722268800000);
+
+        const res2 = await client.klineCandlestickData({
+            symbol: 'BTC-USDT',
+            interval: IntervalEnum.DAY_1,
+            endTime: BigInt(1722268799999)
+        });
+        expect(res2).toBeDefined();
+        expect(res2.data).toBeDefined();
+        expect(res2.data[0][0]).toBe(1722182400000);
+    });
+
+    it('should return error', async () => {
+        const res = await client.klineCandlestickData({ symbol: 'FAKE-SYMBOL', interval: IntervalEnum.DAY_1 });
+        expect(res).toBeDefined();
+        expect(res.code).toBe(100204);
+        expect(res.msg).toBe('illegal argument.');
         expect(res.data).toBeUndefined();
     });
 });

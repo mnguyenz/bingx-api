@@ -43,6 +43,22 @@ export type OrderBookResponse = {
 } & BaseResponse;
 
 // 7.
+export type KlineCandlestickDataResponse = {
+    data?: CandlestickData[];
+} & BaseResponse;
+
+export type CandlestickData = [
+    bigint, // Candlestick chart open time
+    number, // Open price
+    number, // Max price
+    number, // Min price
+    number, // Close price
+    number, // Trading volume (number of coins)
+    bigint, // Candlestick chart close time
+    number // Volume
+];
+
+// 7.
 export type SymbolPriceTickerResponse = {
     data: SinglePriceTickerResponse[];
 } & BaseResponse;
