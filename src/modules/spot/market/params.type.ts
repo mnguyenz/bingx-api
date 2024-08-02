@@ -1,6 +1,6 @@
 import { IntervalEnum } from '~enums';
 
-// 1, 7.
+// 1, 5, 7.
 export type SpotTradingSymbolsParams = {
     symbol?: string;
 };

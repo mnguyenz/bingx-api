@@ -4,7 +4,8 @@ import {
     OrderBookResponse,
     RecentTradesListResponse,
     SpotTradingSymbolsResponse,
-    SymbolPriceTickerResponse
+    SymbolPriceTickerResponse,
+    TickerPrice24hrChangeStatisticsResponse
 } from './responses.type';
 
 export interface MarketMethods {
@@ -12,5 +13,8 @@ export interface MarketMethods {
     recentTradesList(params: RecentTradesListParams): Promise<RecentTradesListResponse>;
     orderBook(params: RecentTradesListParams): Promise<OrderBookResponse>;
     klineCandlestickData(params: KlineCandlestickDataParams): Promise<KlineCandlestickDataResponse>;
+    tickerPrice24hrChangeStatistics(
+        params?: SpotTradingSymbolsParams
+    ): Promise<TickerPrice24hrChangeStatisticsResponse>;
     symbolPriceTicker(params?: SpotTradingSymbolsParams): Promise<SymbolPriceTickerResponse>;
 }

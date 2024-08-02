@@ -42,7 +42,7 @@ export type OrderBookResponse = {
     };
 } & BaseResponse;
 
-// 7.
+// 4.
 export type KlineCandlestickDataResponse = {
     data?: CandlestickData[];
 } & BaseResponse;
@@ -57,6 +57,30 @@ export type CandlestickData = [
     bigint, // Candlestick chart close time
     number // Volume
 ];
+
+// 5.
+export type TickerPrice24hrChangeStatisticsResponse = {
+    data?: SingleTickerPrice24hrChangeStatisticsResponse[];
+} & BaseResponse;
+
+export type SingleTickerPrice24hrChangeStatisticsResponse = {
+    symbol: string;
+    openPrice: number;
+    highPrice: number;
+    lowPrice: number;
+    lastPrice: number;
+    closePrice: number;
+    priceChange: number;
+    priceChangePercent: string;
+    volume: number;
+    quoteVolume: number;
+    openTime: bigint;
+    closeTime: bigint;
+    askPrice: number;
+    askQty: number;
+    bidPrice: number;
+    bidQty: number;
+};
 
 // 7.
 export type SymbolPriceTickerResponse = {

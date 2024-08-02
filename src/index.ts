@@ -22,7 +22,8 @@ import {
     RecentTradesListResponse,
     SpotTradingSymbolsParams,
     SpotTradingSymbolsResponse,
-    SymbolPriceTickerResponse
+    SymbolPriceTickerResponse,
+    TickerPrice24hrChangeStatisticsResponse
 } from '~modules';
 
 export {
@@ -53,5 +54,6 @@ export {
     QueryOrderHistoryResponse,
     SymbolPriceTickerResponse,
     OrderBookResponse,
-    KlineCandlestickDataResponse
+    KlineCandlestickDataResponse,
+    TickerPrice24hrChangeStatisticsResponse
 };

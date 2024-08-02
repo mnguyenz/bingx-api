@@ -166,6 +166,46 @@ describe('klineCandlestickData', () => {
     });
 });
 
+describe('tickerPrice24hrChangeStatistics', () => {
+    const client = new Spot('', '');
+
+    it('should return list statistics of all pairs', async () => {
+        const res = await client.tickerPrice24hrChangeStatistics();
+        expect(res).toBeDefined();
+        expect(res.data).toBeDefined();
+        expect(res.data.length).toBeGreaterThan(1);
+    });
+
+    it('should return statistics of BTC-USDT', async () => {
+        const res = await client.tickerPrice24hrChangeStatistics({ symbol: 'BTC-USDT' });
+        expect(res).toBeDefined();
+        expect(res.data).toBeDefined();
+        expect(res.data.length).toBe(1);
+        expect(res.data[0].symbol).toBe('BTC-USDT');
+        expect(res.data[0].openPrice).toBeDefined();
+        expect(res.data[0].highPrice).toBeDefined();
+        expect(res.data[0].lowPrice).toBeDefined();
+        expect(res.data[0].lastPrice).toBeDefined();
+        expect(res.data[0].priceChange).toBeDefined();
+        expect(res.data[0].priceChangePercent).toBeDefined();
+        expect(res.data[0].volume).toBeDefined();
+        expect(res.data[0].quoteVolume).toBeDefined();
+        expect(res.data[0].openTime).toBeDefined();
+        expect(res.data[0].closeTime).toBeDefined();
+        expect(res.data[0].askPrice).toBeDefined();
+        expect(res.data[0].askQty).toBeDefined();
+        expect(res.data[0].bidPrice).toBeDefined();
+        expect(res.data[0].bidQty).toBeDefined();
+    });
+
+    it('should return error', async () => {
+        const res = await client.tickerPrice24hrChangeStatistics({ symbol: 'FAKE-SYMBOL' });
+        expect(res).toBeDefined();
+        expect(res.code).toBe(100400);
+        expect(res.data).toBeUndefined();
+    });
+});
+
 describe('symbolPriceTicker', () => {
     const client = new Spot('', '');
 

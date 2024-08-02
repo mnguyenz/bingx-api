@@ -1,6 +1,6 @@
 {
     "name": "bingx-trading-api",
-    "version": "1.0.7",
+    "version": "1.0.8",
     "description": "BingX Exchange APIs Connector using Typescript",
     "main": "./dist/index.js",
     "module": "./dist/index.mjs",

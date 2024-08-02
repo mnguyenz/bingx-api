@@ -5,6 +5,7 @@ import {
     SPOT_ORDER_BOOK_URL,
     SPOT_RECENT_TRADES_LIST_URL,
     SPOT_SYMBOL_PRICE_TICKER_URL,
+    SPOT_TICKER_PRICE_24HR_CHANGE_STATISTICS_URL,
     SPOT_TRADING_SYMBOLS_URL
 } from '~constants/url.constant';
 import { KlineCandlestickDataParams, RecentTradesListParams, SpotTradingSymbolsParams } from './params.type';
@@ -13,7 +14,8 @@ import {
     OrderBookResponse,
     RecentTradesListResponse,
     SpotTradingSymbolsResponse,
-    SymbolPriceTickerResponse
+    SymbolPriceTickerResponse,
+    TickerPrice24hrChangeStatisticsResponse
 } from './responses.type';
 import { Constructor } from '~helpers/base.type';
 
@@ -59,6 +61,16 @@ export function mixinMarket<T extends Constructor>(base: T): Constructor<MarketM
 
         async klineCandlestickData(params: KlineCandlestickDataParams): Promise<KlineCandlestickDataResponse> {
             const url = this.preparePath(SPOT_KLINE_CANDLESTICK_DATA_URL, {
+                ...params,
+                symbol: params?.symbol?.toUpperCase()
+            });
+            return this.makeRequest(HttpMethodEnum.GET, url);
+        }
+
+        async tickerPrice24hrChangeStatistics(
+            params?: SpotTradingSymbolsParams
+        ): Promise<TickerPrice24hrChangeStatisticsResponse> {
+            const url = this.prepareSignedPath(SPOT_TICKER_PRICE_24HR_CHANGE_STATISTICS_URL, {
                 ...params,
                 symbol: params?.symbol?.toUpperCase()
             });
