@@ -22,3 +22,12 @@ export enum IntervalEnum {
     WEEK_1 = '1w',
     MONTH_1 = '1M'
 }
+
+export enum OrderBookAggregationEnum {
+    STEP_0 = 'step0',
+    STEP_1 = 'step1',
+    STEP_2 = 'step2',
+    STEP_3 = 'step3',
+    STEP_4 = 'step4',
+    STEP_5 = 'step5'
+}

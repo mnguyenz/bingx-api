@@ -42,7 +42,7 @@ export type OrderBookResponse = {
     };
 } & BaseResponse;
 
-// 4.
+// 4, 9.
 export type KlineCandlestickDataResponse = {
     data?: CandlestickData[];
 } & BaseResponse;
@@ -82,6 +82,15 @@ export type SingleTickerPrice24hrChangeStatisticsResponse = {
     bidQty: number;
 };
 
+// 6.
+export type OrderBookAggregationResponse = {
+    data?: {
+        bids: number[][];
+        asks: number[][];
+        ts: bigint;
+    };
+} & BaseResponse;
+
 // 7.
 export type SymbolPriceTickerResponse = {
     data: SinglePriceTickerResponse[];
@@ -94,4 +103,33 @@ export type SinglePriceTickerResponse = {
         price: number;
         volume: number;
     }[];
+};
+
+// 8.
+export type SymbolOrderBookTickerResponse = {
+    data?: SingleOrderBookTickerResponse[];
+} & BaseResponse;
+
+export type SingleOrderBookTickerResponse = {
+    eventType: string;
+    time: bigint;
+    symbol: string;
+    bidPrice: number;
+    bidVolume: number;
+    askPrice: number;
+    askVolume: number;
+};
+
+// 10.
+export type OldTradeLookupResponse = {
+    data?: SingleOldTradeLookupResponse[];
+} & BaseResponse;
+
+export type SingleOldTradeLookupResponse = {
+    tid: string;
+    t: bigint;
+    ms: number;
+    s: string;
+    p: number;
+    v: number;
 };

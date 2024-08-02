@@ -1,7 +1,7 @@
 
 # Node.js & Typescript BingX (Cryptocurrency Exchange) API
 
-This library is an lightweight, easy, simple and clean connector to the [BingX Cryptocurrency Exchange API](https://bingx-api.github.io/docs/#/en-us/spot/changelog).
+This library is a lightweight, easy, simple and clean connector to the [BingX Cryptocurrency Exchange API](https://bingx-api.github.io/docs/#/en-us/spot/changelog).
 
 Right now I'm focus on Spot APIs, I will try to complete other APIs later
 ## Installation
@@ -62,7 +62,13 @@ Thank you so much for all the support
         - [x]   1. Spot Trading Symbols
         - [x]   2. Recent Trades List
         - [x]   3. Order Book
+        - [x]   4. Kline/Candlestick Data
+        - [x]   5. 24hr Ticker Price Change Statistics
+        - [x]   6. Order Book Aggregation
         - [x]   7. Symbol Price Ticker
+        - [x]   8. Symbol Order Book Ticker
+        - [x]   9. Historical K-line
+        - [x]   10. Old Trade Lookup
     - [x]    Fund Acount
         - [x]   1.  Query Assets
         - [x]   3.  Asset transfer records

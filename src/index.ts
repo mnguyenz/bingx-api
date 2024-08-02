@@ -5,13 +5,17 @@ import {
     SpotTradingSymbolsResponseStatusEnum,
     OrderHistoryStatusEnum,
     AssetTransferTypeEnum,
-    IntervalEnum
+    IntervalEnum,
+    OrderBookAggregationEnum
 } from './enums';
 import {
     AssetTransferRecordsParams,
     AssetTransferRecordsResponse,
     KlineCandlestickDataParams,
     KlineCandlestickDataResponse,
+    OldTradeLookupResponse,
+    OrderBookAggregationParams,
+    OrderBookAggregationResponse,
     OrderBookResponse,
     PlaceOrderParams,
     PlaceOrderResponse,
@@ -22,6 +26,7 @@ import {
     RecentTradesListResponse,
     SpotTradingSymbolsParams,
     SpotTradingSymbolsResponse,
+    SymbolOrderBookTickerResponse,
     SymbolPriceTickerResponse,
     TickerPrice24hrChangeStatisticsResponse
 } from '~modules';
@@ -36,6 +41,7 @@ export {
     OrderHistoryStatusEnum,
     AssetTransferTypeEnum,
     IntervalEnum,
+    OrderBookAggregationEnum,
 
     // Params
     AssetTransferRecordsParams,
@@ -44,6 +50,7 @@ export {
     PlaceOrderParams,
     QueryOrderHistoryParams,
     KlineCandlestickDataParams,
+    OrderBookAggregationParams,
 
     // Responses
     AssetTransferRecordsResponse,
@@ -55,5 +62,8 @@ export {
     SymbolPriceTickerResponse,
     OrderBookResponse,
     KlineCandlestickDataResponse,
-    TickerPrice24hrChangeStatisticsResponse
+    TickerPrice24hrChangeStatisticsResponse,
+    OrderBookAggregationResponse,
+    SymbolOrderBookTickerResponse,
+    OldTradeLookupResponse
 };
