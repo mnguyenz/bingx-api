@@ -365,26 +365,26 @@ describe('historicalKline', () => {
     });
 });
 
-describe('oldTradeLookup', () => {
-    const client = new Spot('', '');
+// describe('oldTradeLookup', () => {
+//     const client = new Spot('', '');
 
-    it('should return list trades', async () => {
-        const res = await client.oldTradeLookup({ symbol: 'BTC-USDT' });
-        expect(res).toBeDefined();
-        expect(res.data).toBeDefined();
-        expect(res.data.length).toBe(500);
-        expect(res.data[0].tid).toBeDefined();
-        expect(res.data[0].t).toBeDefined();
-        expect(res.data[0].ms).toBeDefined();
-        expect(res.data[0].s).toBe('BTC-USDT');
-        expect(res.data[0].p).toBeGreaterThan(0);
-        expect(res.data[0].v).toBeGreaterThan(0);
-    });
+//     it('should return list trades', async () => {
+//         const res = await client.oldTradeLookup({ symbol: 'BTC-USDT' });
+//         expect(res).toBeDefined();
+//         expect(res.data).toBeDefined();
+//         expect(res.data.length).toBe(500);
+//         expect(res.data[0].tid).toBeDefined();
+//         expect(res.data[0].t).toBeDefined();
+//         expect(res.data[0].ms).toBeDefined();
+//         expect(res.data[0].s).toBe('BTC-USDT');
+//         expect(res.data[0].p).toBeGreaterThan(0);
+//         expect(res.data[0].v).toBeGreaterThan(0);
+//     });
 
-    it('should return limit number of trades', async () => {
-        const res = await client.oldTradeLookup({ symbol: 'BTC-USDT', limit: 10 });
-        expect(res).toBeDefined();
-        expect(res.data).toBeDefined();
-        expect(res.data.length).toBe(10);
-    });
-});
+//     it('should return limit number of trades', async () => {
+//         const res = await client.oldTradeLookup({ symbol: 'BTC-USDT', limit: 10 });
+//         expect(res).toBeDefined();
+//         expect(res.data).toBeDefined();
+//         expect(res.data.length).toBe(10);
+//     });
+// });

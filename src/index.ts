@@ -24,6 +24,8 @@ import {
     QueryOrderHistoryResponse,
     RecentTradesListParams,
     RecentTradesListResponse,
+    SingleOldTradeLookupResponse,
+    SingleOrderHistoryResponse,
     SpotTradingSymbolsParams,
     SpotTradingSymbolsResponse,
     SymbolOrderBookTickerResponse,
@@ -65,5 +67,7 @@ export {
     TickerPrice24hrChangeStatisticsResponse,
     OrderBookAggregationResponse,
     SymbolOrderBookTickerResponse,
-    OldTradeLookupResponse
+    OldTradeLookupResponse,
+    SingleOldTradeLookupResponse,
+    SingleOrderHistoryResponse
 };
