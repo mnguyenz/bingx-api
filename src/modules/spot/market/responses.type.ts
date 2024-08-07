@@ -44,10 +44,10 @@ export type OrderBookResponse = {
 
 // 4, 9.
 export type KlineCandlestickDataResponse = {
-    data?: CandlestickData[];
+    data?: SingleCandlestickDataResponse[];
 } & BaseResponse;
 
-export type CandlestickData = [
+export type SingleCandlestickDataResponse = [
     bigint, // Candlestick chart open time
     number, // Open price
     number, // Max price

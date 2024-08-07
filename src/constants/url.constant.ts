@@ -13,7 +13,9 @@ export const SPOT_HISTORICAL_KLINE_URL = '/openApi/market/his/v1/kline';
 export const SPOT_OLD_TRADE_LOOKUP_URL = '/openApi/market/his/v1/trade';
 
 export const SPOT_PLACE_ORDER_URL = '/openApi/spot/v1/trade/order';
-export const SPOT_QUERY_ASSETS_URL = '/openApi/spot/v1/account/balance';
+export const SPOT_CURRENT_OPEN_ORDERS_URL = '/openApi/spot/v1/trade/openOrders';
 export const SPOT_QUERY_ORDER_HISTORY_URL = '/openApi/spot/v1/trade/historyOrders';
+
+export const SPOT_QUERY_ASSETS_URL = '/openApi/spot/v1/account/balance';
 
 export const SPOT_ASSET_TRANSFER_RECORDS_URL = '/openApi/api/v3/asset/transfer';

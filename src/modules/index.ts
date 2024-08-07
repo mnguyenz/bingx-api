@@ -1,6 +1,6 @@
 import { mixinFundAccount } from './spot/fund-account/fund-account';
 import { mixinMarket } from './spot/market/market';
-import { mixinTrade } from './spot/trades/trade';
+import { mixinTrade } from './spot/trades/trades';
 
 export { mixinFundAccount, mixinMarket, mixinTrade };
 export * from './spot/fund-account/params.type';

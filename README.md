@@ -74,5 +74,6 @@ Thank you so much for all the support
         - [x]   3.  Asset transfer records
     - [x]  Trade
         - [x]   1. Place Order
+        - [x]   8. Current Open Orders
         - [x]   9. Query Order History
 

@@ -3,7 +3,7 @@ import {
     OrderTypeEnum,
     OrderSideEnum,
     SpotTradingSymbolsResponseStatusEnum,
-    OrderHistoryStatusEnum,
+    OrderStatusEnum,
     AssetTransferTypeEnum,
     IntervalEnum,
     OrderBookAggregationEnum
@@ -21,16 +21,24 @@ import {
     PlaceOrderResponse,
     QueryAssetsResponse,
     QueryOrderHistoryParams,
-    QueryOrderHistoryResponse,
+    OrdersResponse,
     RecentTradesListParams,
     RecentTradesListResponse,
     SingleOldTradeLookupResponse,
-    SingleOrderHistoryResponse,
+    SingleOrderResponse,
     SpotTradingSymbolsParams,
     SpotTradingSymbolsResponse,
     SymbolOrderBookTickerResponse,
     SymbolPriceTickerResponse,
-    TickerPrice24hrChangeStatisticsResponse
+    TickerPrice24hrChangeStatisticsResponse,
+    SingleQueryAssetResponse,
+    SingleAssetTransferRecordResponse,
+    SingleRecentTradeResponse,
+    SingleSymbolResponse,
+    SingleCandlestickDataResponse,
+    SingleTickerPrice24hrChangeStatisticsResponse,
+    SinglePriceTickerResponse,
+    SingleOrderBookTickerResponse
 } from '~modules';
 
 export {
@@ -40,7 +48,7 @@ export {
     SpotTradingSymbolsResponseStatusEnum,
     OrderTypeEnum,
     OrderSideEnum,
-    OrderHistoryStatusEnum,
+    OrderStatusEnum,
     AssetTransferTypeEnum,
     IntervalEnum,
     OrderBookAggregationEnum,
@@ -60,7 +68,7 @@ export {
     QueryAssetsResponse,
     SpotTradingSymbolsResponse,
     PlaceOrderResponse,
-    QueryOrderHistoryResponse,
+    OrdersResponse,
     SymbolPriceTickerResponse,
     OrderBookResponse,
     KlineCandlestickDataResponse,
@@ -69,5 +77,13 @@ export {
     SymbolOrderBookTickerResponse,
     OldTradeLookupResponse,
     SingleOldTradeLookupResponse,
-    SingleOrderHistoryResponse
+    SingleOrderResponse,
+    SingleQueryAssetResponse,
+    SingleAssetTransferRecordResponse,
+    SingleRecentTradeResponse,
+    SingleSymbolResponse,
+    SingleCandlestickDataResponse,
+    SingleTickerPrice24hrChangeStatisticsResponse,
+    SinglePriceTickerResponse,
+    SingleOrderBookTickerResponse
 };

@@ -1,4 +1,4 @@
-import { OrderHistoryStatusEnum, OrderSideEnum, OrderTypeEnum } from '~enums';
+import { OrderStatusEnum, OrderSideEnum, OrderTypeEnum } from '~enums';
 
 // 1.
 export type PlaceOrderParams = {
@@ -18,6 +18,6 @@ export type QueryOrderHistoryParams = {
     endTime?: bigint;
     pageIndex?: number;
     pageSize?: number;
-    status?: OrderHistoryStatusEnum;
+    status?: OrderStatusEnum;
     type?: OrderTypeEnum;
 };

@@ -43,6 +43,9 @@ jobs:
       - name: Test
         if: steps.version-updated.outputs.has-updated
         run: npm run test
+        env:
+          BINGX_API_KEY: ${{ secrets.BINGX_API_KEY }}
+          BINGX_API_SECRET: ${{ secrets.BINGX_API_SECRET }}
 
       - name: Create Build Files
         if: steps.version-updated.outputs.has-updated

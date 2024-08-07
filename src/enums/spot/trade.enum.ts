@@ -12,8 +12,9 @@ export enum OrderTypeEnum {
     TRIGGER_MARKET = 'TRIGGER_MARKET'
 }
 
-export enum OrderHistoryStatusEnum {
+export enum OrderStatusEnum {
     FILLED = 'FILLED',
     CANCELED = 'CANCELED',
-    FAILED = 'FAILED'
+    FAILED = 'FAILED',
+    PENDING = 'PENDING'
 }

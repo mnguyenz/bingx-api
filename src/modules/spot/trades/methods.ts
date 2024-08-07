@@ -1,7 +1,9 @@
+import { SpotTradingSymbolsParams } from '../market/params.type';
 import { PlaceOrderParams, QueryOrderHistoryParams } from './params.type';
-import { PlaceOrderResponse, QueryOrderHistoryResponse } from './responses.type';
+import { PlaceOrderResponse, OrdersResponse } from './responses.type';
 
 export interface TradeMethods {
     placeOrder(params: PlaceOrderParams): Promise<PlaceOrderResponse>;
-    queryOrderHistory(params?: QueryOrderHistoryParams): Promise<QueryOrderHistoryResponse>;
+    currentOpenOrders(params?: SpotTradingSymbolsParams): Promise<OrdersResponse>;
+    queryOrderHistory(params?: QueryOrderHistoryParams): Promise<OrdersResponse>;
 }
