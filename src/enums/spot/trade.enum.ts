@@ -4,8 +4,8 @@ export enum OrderSideEnum {
 }
 
 export enum OrderTypeEnum {
-    MARKET = 'MARKET',
     LIMIT = 'LIMIT',
+    MARKET = 'MARKET',
     TAKE_STOP_LIMIT = 'TAKE_STOP_LIMIT',
     TAKE_STOP_MARKET = 'TAKE_STOP_MARKET',
     TRIGGER_LIMIT = 'TRIGGER_LIMIT',
@@ -13,6 +13,8 @@ export enum OrderTypeEnum {
 }
 
 export enum OrderStatusEnum {
+    NEW = 'NEW',
+    PARTIALLY_FILLED = 'PARTIALLY_FILLED',
     FILLED = 'FILLED',
     CANCELED = 'CANCELED',
     FAILED = 'FAILED',

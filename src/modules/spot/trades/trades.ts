@@ -1,5 +1,6 @@
 import { TradeMethods } from './methods';
 import {
+    SPOT_CANCEL_ALL_OPEN_ORDERS_URL,
     SPOT_CURRENT_OPEN_ORDERS_URL,
     SPOT_PLACE_ORDER_URL,
     SPOT_QUERY_ORDER_HISTORY_URL
@@ -7,7 +8,7 @@ import {
 import { HttpMethodEnum } from '~enums/common.enum';
 import { Constructor } from '~helpers/base.type';
 import { PlaceOrderParams, QueryOrderHistoryParams } from './params.type';
-import { PlaceOrderResponse, OrdersResponse } from './responses.type';
+import { PlaceOrderResponse, OrdersResponse, PlaceOrdersResponse } from './responses.type';
 import { SpotTradingSymbolsParams } from '../market/params.type';
 
 export function mixinTrade<T extends Constructor>(base: T): Constructor<TradeMethods> & T {
@@ -27,6 +28,30 @@ export function mixinTrade<T extends Constructor>(base: T): Constructor<TradeMet
                     origQty: parseFloat(response.data?.origQty),
                     executedQty: parseFloat(response.data?.executedQty),
                     cummulativeQuoteQty: parseFloat(response.data?.cummulativeQuoteQty)
+                }
+            };
+            return parseResponse;
+        }
+
+        async cancelAllOpenOrders(params: SpotTradingSymbolsParams): Promise<PlaceOrdersResponse> {
+            const url = this.prepareSignedPath(SPOT_CANCEL_ALL_OPEN_ORDERS_URL, {
+                ...params,
+                symbol: params?.symbol?.toUpperCase()
+            });
+            const response = await this.makeRequest(HttpMethodEnum.POST, url);
+            const parseResponse = {
+                ...response,
+                data: {
+                    orders: response.data?.orders?.map((order) => {
+                        return {
+                            ...order,
+                            price: parseFloat(order?.price),
+                            stopPrice: parseFloat(order?.stopPrice),
+                            origQty: parseFloat(order?.origQty),
+                            executedQty: parseFloat(order?.executedQty),
+                            cummulativeQuoteQty: parseFloat(order?.cummulativeQuoteQty)
+                        };
+                    })
                 }
             };
             return parseResponse;

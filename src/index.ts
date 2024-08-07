@@ -38,7 +38,9 @@ import {
     SingleCandlestickDataResponse,
     SingleTickerPrice24hrChangeStatisticsResponse,
     SinglePriceTickerResponse,
-    SingleOrderBookTickerResponse
+    SingleOrderBookTickerResponse,
+    SinglePlaceOrderResponse,
+    PlaceOrdersResponse
 } from '~modules';
 
 export {
@@ -85,5 +87,7 @@ export {
     SingleCandlestickDataResponse,
     SingleTickerPrice24hrChangeStatisticsResponse,
     SinglePriceTickerResponse,
-    SingleOrderBookTickerResponse
+    SingleOrderBookTickerResponse,
+    SinglePlaceOrderResponse,
+    PlaceOrdersResponse
 };

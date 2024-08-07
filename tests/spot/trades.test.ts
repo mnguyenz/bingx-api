@@ -40,3 +40,18 @@ describe('currentOpenOrders', () => {
         expect(res.data.orders.length).toBeGreaterThanOrEqual(1);
     });
 });
+
+describe('cancelAllOpenOrders', () => {
+    const client = new Spot(env.BINGX_API_KEY, env.BINGX_API_SECRET);
+
+    it('should cancel all open orders', async () => {
+        const res = await client.cancelAllOpenOrders();
+        expect(res).toBeDefined();
+        expect(res.code).toBe(0);
+        expect(res.data).toBeDefined();
+        expect(res.data.orders.length).toBeGreaterThanOrEqual(1);
+
+        const currentOpenOrders = await client.currentOpenOrders();
+        expect(currentOpenOrders.data.orders.length).toBe(0);
+    });
+});

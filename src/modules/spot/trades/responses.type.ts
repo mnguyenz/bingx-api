@@ -3,21 +3,30 @@ import { BaseResponse } from '~helpers/base.type';
 
 // 1.
 export type PlaceOrderResponse = {
+    data: SinglePlaceOrderResponse;
+} & BaseResponse;
+
+// 5.
+export type PlaceOrdersResponse = {
     data: {
-        symbol: string;
-        orderId: bigint;
-        transactTime: bigint;
-        price: number;
-        stopPrice: number;
-        origQty: number;
-        executedQty: number;
-        cummulativeQuoteQty: number;
-        status: OrderStatusEnum;
-        type: OrderTypeEnum;
-        side: OrderSideEnum;
-        clientOrderID: string;
+        orders: SinglePlaceOrderResponse[];
     };
 } & BaseResponse;
+
+export type SinglePlaceOrderResponse = {
+    symbol: string;
+    orderId: bigint;
+    transactTime: bigint;
+    price: number;
+    stopPrice: number;
+    origQty: number;
+    executedQty: number;
+    cummulativeQuoteQty: number;
+    status: OrderStatusEnum;
+    type: OrderTypeEnum;
+    side: OrderSideEnum;
+    clientOrderID: string;
+};
 
 // 8, 9.
 export type OrdersResponse = {

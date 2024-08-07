@@ -8,6 +8,8 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
     steps:
       - name: Package Version Updated
         uses: MontyD/package-json-updated-action@1.0.1
@@ -53,6 +55,6 @@ jobs:
 
       - name: Compare versions and conditionally publish
         if: steps.version-updated.outputs.has-updated
-        run: npm publish --access public
+        run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
