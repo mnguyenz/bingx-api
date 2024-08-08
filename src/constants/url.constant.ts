@@ -12,7 +12,9 @@ export const SPOT_SYMBOL_ORDER_BOOK_TICKER_URL = '/openApi/spot/v1/ticker/bookTi
 export const SPOT_HISTORICAL_KLINE_URL = '/openApi/market/his/v1/kline';
 export const SPOT_OLD_TRADE_LOOKUP_URL = '/openApi/market/his/v1/trade';
 
+// Trade
 export const SPOT_PLACE_ORDER_URL = '/openApi/spot/v1/trade/order';
+export const SPOT_CANCEL_ORDER_URL = '/openApi/spot/v1/trade/cancel';
 export const SPOT_CANCEL_ALL_OPEN_ORDERS_URL = '/openApi/spot/v1/trade/cancelOpenOrders';
 export const SPOT_CURRENT_OPEN_ORDERS_URL = '/openApi/spot/v1/trade/openOrders';
 export const SPOT_QUERY_ORDER_HISTORY_URL = '/openApi/spot/v1/trade/historyOrders';

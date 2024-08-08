@@ -25,6 +25,6 @@ export type SingleAssetTransferRecordResponse = {
     amount: number;
     type: AssetTransferTypeEnum;
     status: string;
-    tranId: bigint;
-    timestamp: bigint;
+    tranId: number;
+    timestamp: number;
 };

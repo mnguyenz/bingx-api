@@ -40,7 +40,9 @@ import {
     SinglePriceTickerResponse,
     SingleOrderBookTickerResponse,
     SinglePlaceOrderResponse,
-    PlaceOrdersResponse
+    PlaceOrdersResponse,
+    CancelOrderParams,
+    CancelOrderResponse
 } from '~modules';
 
 export {
@@ -63,6 +65,7 @@ export {
     QueryOrderHistoryParams,
     KlineCandlestickDataParams,
     OrderBookAggregationParams,
+    CancelOrderParams,
 
     // Responses
     AssetTransferRecordsResponse,
@@ -89,5 +92,6 @@ export {
     SinglePriceTickerResponse,
     SingleOrderBookTickerResponse,
     SinglePlaceOrderResponse,
-    PlaceOrdersResponse
+    PlaceOrdersResponse,
+    CancelOrderResponse
 };

@@ -11,5 +11,5 @@ export type BaseResponse = {
     code: number;
     msg?: string;
     debugMsg?: string;
-    timestamp?: bigint;
+    timestamp?: number;
 };

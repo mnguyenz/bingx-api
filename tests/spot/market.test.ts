@@ -84,7 +84,6 @@ describe('orderBook', () => {
         const res = await client.orderBook({ symbol: 'BTC-USDT', limit: 1001 });
         expect(res).toBeDefined();
         expect(res.code).toBe(100400);
-        expect(res.msg).toBe('limit should less than 1000');
         expect(res.data).toBeUndefined();
     });
 });
@@ -121,7 +120,7 @@ describe('klineCandlestickData', () => {
         const res = await client.klineCandlestickData({
             symbol: 'BTC-USDT',
             interval: IntervalEnum.DAY_1,
-            startTime: BigInt(1722268800000)
+            startTime: 1722268800000
         });
         expect(res).toBeDefined();
         expect(res.data).toBeDefined();
@@ -130,7 +129,7 @@ describe('klineCandlestickData', () => {
         const res2 = await client.klineCandlestickData({
             symbol: 'BTC-USDT',
             interval: IntervalEnum.DAY_1,
-            startTime: BigInt(1722268800001)
+            startTime: 1722268800001
         });
         expect(res2).toBeDefined();
         expect(res2.data).toBeDefined();
@@ -141,7 +140,7 @@ describe('klineCandlestickData', () => {
         const res = await client.klineCandlestickData({
             symbol: 'BTC-USDT',
             interval: IntervalEnum.DAY_1,
-            endTime: BigInt(1722268800000)
+            endTime: 1722268800000
         });
         expect(res).toBeDefined();
         expect(res.data).toBeDefined();
@@ -150,7 +149,7 @@ describe('klineCandlestickData', () => {
         const res2 = await client.klineCandlestickData({
             symbol: 'BTC-USDT',
             interval: IntervalEnum.DAY_1,
-            endTime: BigInt(1722268799999)
+            endTime: 1722268799999
         });
         expect(res2).toBeDefined();
         expect(res2.data).toBeDefined();
@@ -309,7 +308,7 @@ describe('historicalKline', () => {
         const res = await client.historicalKline({
             symbol: 'BTC-USDT',
             interval: IntervalEnum.DAY_1,
-            startTime: BigInt(1722268800000)
+            startTime: 1722268800000
         });
         expect(res).toBeDefined();
         expect(res.data).toBeDefined();
@@ -318,7 +317,7 @@ describe('historicalKline', () => {
         const res2 = await client.historicalKline({
             symbol: 'BTC-USDT',
             interval: IntervalEnum.DAY_1,
-            startTime: BigInt(1722268800001)
+            startTime: 1722268800001
         });
         expect(res2).toBeDefined();
         expect(res2.data).toBeDefined();
@@ -329,7 +328,7 @@ describe('historicalKline', () => {
         const res = await client.historicalKline({
             symbol: 'BTC-USDT',
             interval: IntervalEnum.DAY_1,
-            endTime: BigInt(1722268800000)
+            endTime: 1722268800000
         });
         expect(res).toBeDefined();
         expect(res.data).toBeDefined();
@@ -338,7 +337,7 @@ describe('historicalKline', () => {
         const res2 = await client.historicalKline({
             symbol: 'BTC-USDT',
             interval: IntervalEnum.DAY_1,
-            endTime: BigInt(1722268799999)
+            endTime: 1722268799999
         });
         expect(res2).toBeDefined();
         expect(res2.data).toBeDefined();

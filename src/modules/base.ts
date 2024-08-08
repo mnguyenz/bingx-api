@@ -1,7 +1,8 @@
 import * as crypto from 'crypto';
 import { mixinFundAccount, mixinMarket, mixinTrade } from '~modules';
 import { BASE_URL } from '~constants/url.constant';
-import { buildQueryString, httpRequest, removeEmptyValue } from '~helpers/utils';
+import { buildQueryString, httpRequest, removeEmptyValue, convertOrderIdsToBigInt } from '~helpers/utils';
+import JSONbig from 'json-bigint';
 
 export const Base = mixinFundAccount(
     mixinMarket(
@@ -17,13 +18,16 @@ export const Base = mixinFundAccount(
                     this.baseURL = baseURL || BASE_URL;
                 }
 
-                async makeRequest(method: string, url: string) {
-                    return await httpRequest({
+                async makeRequest(method: string, url: string): Promise<any> {
+                    const response = await httpRequest({
                         method,
                         baseURL: this.baseURL,
                         url,
                         apiKey: this.apiKey
                     });
+                    let parsedResponse = JSONbig.parse(response);
+                    parsedResponse = convertOrderIdsToBigInt(parsedResponse);
+                    return parsedResponse;
                 }
 
                 preparePath(path: string, options?: object): string {

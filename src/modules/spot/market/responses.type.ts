@@ -29,7 +29,7 @@ export type SingleRecentTradeResponse = {
     id: number;
     price: number;
     qty: number;
-    time: bigint;
+    time: number;
     buyerMaker: boolean;
 };
 
@@ -38,7 +38,7 @@ export type OrderBookResponse = {
     data?: {
         bids: number[][];
         asks: number[][];
-        ts: bigint;
+        ts: number;
     };
 } & BaseResponse;
 
@@ -74,8 +74,8 @@ export type SingleTickerPrice24hrChangeStatisticsResponse = {
     priceChangePercent: string;
     volume: number;
     quoteVolume: number;
-    openTime: bigint;
-    closeTime: bigint;
+    openTime: number;
+    closeTime: number;
     askPrice: number;
     askQty: number;
     bidPrice: number;
@@ -87,7 +87,7 @@ export type OrderBookAggregationResponse = {
     data?: {
         bids: number[][];
         asks: number[][];
-        ts: bigint;
+        ts: number;
     };
 } & BaseResponse;
 
@@ -112,7 +112,7 @@ export type SymbolOrderBookTickerResponse = {
 
 export type SingleOrderBookTickerResponse = {
     eventType: string;
-    time: bigint;
+    time: number;
     symbol: string;
     bidPrice: number;
     bidVolume: number;
@@ -127,7 +127,7 @@ export type OldTradeLookupResponse = {
 
 export type SingleOldTradeLookupResponse = {
     tid: string;
-    t: bigint;
+    t: number;
     ms: number;
     s: string;
     p: number;

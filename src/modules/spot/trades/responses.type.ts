@@ -6,6 +6,24 @@ export type PlaceOrderResponse = {
     data: SinglePlaceOrderResponse;
 } & BaseResponse;
 
+// 3.
+export type CancelOrderResponse = {
+    data?: CancelOrderData;
+} & BaseResponse;
+
+export type CancelOrderData = {
+    symbol: string;
+    orderId: bigint;
+    price: number;
+    stopPrice: number;
+    origQty: number;
+    executedQty: number;
+    cummulativeQuoteQty: number;
+    status: OrderStatusEnum;
+    type: OrderTypeEnum;
+    side: OrderSideEnum;
+};
+
 // 5.
 export type PlaceOrdersResponse = {
     data: {
@@ -16,7 +34,7 @@ export type PlaceOrdersResponse = {
 export type SinglePlaceOrderResponse = {
     symbol: string;
     orderId: bigint;
-    transactTime: bigint;
+    transactTime: number;
     price: number;
     stopPrice: number;
     origQty: number;
@@ -35,19 +53,9 @@ export type OrdersResponse = {
     };
 } & BaseResponse;
 
-export type SingleOrderResponse = {
-    symbol: string;
-    orderId: bigint;
-    price: number;
-    stopPrice: number;
-    origQty: number;
-    executedQty: number;
-    cummulativeQuoteQty: number;
-    status: OrderStatusEnum;
-    type: OrderTypeEnum;
-    side: OrderSideEnum;
-    time: bigint;
-    updateTime: bigint;
+export type SingleOrderResponse = CancelOrderData & {
+    time: number;
+    updateTime: number;
     origQuoteOrderQty: number;
     clientOrderID: string;
     fee: number;

@@ -1,14 +1,15 @@
 import { TradeMethods } from './methods';
 import {
     SPOT_CANCEL_ALL_OPEN_ORDERS_URL,
+    SPOT_CANCEL_ORDER_URL,
     SPOT_CURRENT_OPEN_ORDERS_URL,
     SPOT_PLACE_ORDER_URL,
     SPOT_QUERY_ORDER_HISTORY_URL
 } from '~constants/url.constant';
 import { HttpMethodEnum } from '~enums/common.enum';
 import { Constructor } from '~helpers/base.type';
-import { PlaceOrderParams, QueryOrderHistoryParams } from './params.type';
-import { PlaceOrderResponse, OrdersResponse, PlaceOrdersResponse } from './responses.type';
+import { CancelOrderParams, PlaceOrderParams, QueryOrderHistoryParams } from './params.type';
+import { PlaceOrderResponse, OrdersResponse, PlaceOrdersResponse, CancelOrderResponse } from './responses.type';
 import { SpotTradingSymbolsParams } from '../market/params.type';
 
 export function mixinTrade<T extends Constructor>(base: T): Constructor<TradeMethods> & T {
@@ -19,15 +20,41 @@ export function mixinTrade<T extends Constructor>(base: T): Constructor<TradeMet
                 symbol: params.symbol.toUpperCase()
             });
             const response = await this.makeRequest(HttpMethodEnum.POST, url);
+            if (!response.data) {
+                return response;
+            }
             const parseResponse = {
                 ...response,
                 data: {
                     ...response.data,
-                    price: parseFloat(response.data?.price),
-                    stopPrice: parseFloat(response.data?.stopPrice),
-                    origQty: parseFloat(response.data?.origQty),
-                    executedQty: parseFloat(response.data?.executedQty),
-                    cummulativeQuoteQty: parseFloat(response.data?.cummulativeQuoteQty)
+                    price: parseFloat(response.data.price),
+                    stopPrice: parseFloat(response.data.stopPrice),
+                    origQty: parseFloat(response.data.origQty),
+                    executedQty: parseFloat(response.data.executedQty),
+                    cummulativeQuoteQty: parseFloat(response.data.cummulativeQuoteQty)
+                }
+            };
+            return parseResponse;
+        }
+
+        async cancelOrder(params: CancelOrderParams): Promise<CancelOrderResponse> {
+            const url = this.prepareSignedPath(SPOT_CANCEL_ORDER_URL, {
+                ...params,
+                symbol: params.symbol.toUpperCase()
+            });
+            const response = await this.makeRequest(HttpMethodEnum.POST, url);
+            if (!response.data) {
+                return response;
+            }
+            const parseResponse = {
+                ...response,
+                data: {
+                    ...response.data,
+                    price: parseFloat(response.data.price),
+                    stopPrice: parseFloat(response.data.stopPrice),
+                    origQty: parseFloat(response.data.origQty),
+                    executedQty: parseFloat(response.data.executedQty),
+                    cummulativeQuoteQty: parseFloat(response.data.cummulativeQuoteQty)
                 }
             };
             return parseResponse;
@@ -39,17 +66,20 @@ export function mixinTrade<T extends Constructor>(base: T): Constructor<TradeMet
                 symbol: params?.symbol?.toUpperCase()
             });
             const response = await this.makeRequest(HttpMethodEnum.POST, url);
+            if (!response.data) {
+                return response;
+            }
             const parseResponse = {
                 ...response,
                 data: {
                     orders: response.data?.orders?.map((order) => {
                         return {
                             ...order,
-                            price: parseFloat(order?.price),
-                            stopPrice: parseFloat(order?.stopPrice),
-                            origQty: parseFloat(order?.origQty),
-                            executedQty: parseFloat(order?.executedQty),
-                            cummulativeQuoteQty: parseFloat(order?.cummulativeQuoteQty)
+                            price: parseFloat(order.price),
+                            stopPrice: parseFloat(order.stopPrice),
+                            origQty: parseFloat(order.origQty),
+                            executedQty: parseFloat(order.executedQty),
+                            cummulativeQuoteQty: parseFloat(order.cummulativeQuoteQty)
                         };
                     })
                 }
@@ -63,20 +93,23 @@ export function mixinTrade<T extends Constructor>(base: T): Constructor<TradeMet
                 symbol: params?.symbol?.toUpperCase()
             });
             const response = await this.makeRequest(HttpMethodEnum.GET, url);
+            if (!response.data) {
+                return response;
+            }
             const parseResponse = {
                 ...response,
                 data: {
-                    orders: response.data?.orders?.map((order) => {
+                    orders: response.data.orders?.map((order) => {
                         // eslint-disable-next-line @typescript-eslint/naming-convention, @typescript-eslint/no-unused-vars
                         const { StopPrice, ...rest } = order;
                         return {
                             ...rest,
-                            price: parseFloat(order?.price),
+                            price: parseFloat(order.price),
                             stopPrice: parseFloat(StopPrice),
-                            origQty: parseFloat(order?.origQty),
-                            executedQty: parseFloat(order?.executedQty),
-                            cummulativeQuoteQty: parseFloat(order?.cummulativeQuoteQty),
-                            origQuoteOrderQty: parseFloat(order?.origQuoteOrderQty)
+                            origQty: parseFloat(order.origQty),
+                            executedQty: parseFloat(order.executedQty),
+                            cummulativeQuoteQty: parseFloat(order.cummulativeQuoteQty),
+                            origQuoteOrderQty: parseFloat(order.origQuoteOrderQty)
                         };
                     })
                 }
@@ -90,6 +123,9 @@ export function mixinTrade<T extends Constructor>(base: T): Constructor<TradeMet
                 symbol: params?.symbol?.toUpperCase()
             });
             const response = await this.makeRequest(HttpMethodEnum.GET, url);
+            if (!response.data) {
+                return response;
+            }
             const parseResponse = {
                 ...response,
                 data: {
@@ -98,12 +134,12 @@ export function mixinTrade<T extends Constructor>(base: T): Constructor<TradeMet
                         const { StopPrice, ...rest } = order;
                         return {
                             ...rest,
-                            price: parseFloat(order?.price),
+                            price: parseFloat(order.price),
                             stopPrice: parseFloat(StopPrice),
-                            origQty: parseFloat(order?.origQty),
-                            executedQty: parseFloat(order?.executedQty),
-                            cummulativeQuoteQty: parseFloat(order?.cummulativeQuoteQty),
-                            origQuoteOrderQty: parseFloat(order?.origQuoteOrderQty)
+                            origQty: parseFloat(order.origQty),
+                            executedQty: parseFloat(order.executedQty),
+                            cummulativeQuoteQty: parseFloat(order.cummulativeQuoteQty),
+                            origQuoteOrderQty: parseFloat(order.origQuoteOrderQty)
                         };
                     })
                 }

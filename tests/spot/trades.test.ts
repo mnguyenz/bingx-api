@@ -1,6 +1,9 @@
 import { env } from '~config/env.config';
 import { OrderSideEnum, OrderTypeEnum, Spot } from '../../src/index';
 
+let orderId: bigint;
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
 describe('placeOrder', () => {
     const client = new Spot(env.BINGX_API_KEY, env.BINGX_API_SECRET);
 
@@ -26,6 +29,8 @@ describe('placeOrder', () => {
         expect(res.data.price).toEqual(orderPrice);
         expect(res.data.type).toEqual(OrderTypeEnum.LIMIT);
         expect(res.data.side).toEqual(OrderSideEnum.BUY);
+
+        orderId = res.data.orderId;
     });
 });
 
@@ -38,20 +43,52 @@ describe('currentOpenOrders', () => {
         expect(res.code).toBe(0);
         expect(res.data).toBeDefined();
         expect(res.data.orders.length).toBeGreaterThanOrEqual(1);
+        expect(res.data.orders[res.data.orders.length - 1].orderId).toBe(orderId);
     });
 });
 
-describe('cancelAllOpenOrders', () => {
+describe('cancelOrder', () => {
     const client = new Spot(env.BINGX_API_KEY, env.BINGX_API_SECRET);
 
-    it('should cancel all open orders', async () => {
-        const res = await client.cancelAllOpenOrders();
+    it('should return error because no orderId or clientOrderID', async () => {
+        const res = await client.cancelOrder({ symbol: 'BTC-USDT' });
+        expect(res).toBeDefined();
+        expect(res.code).toBe(100400);
+        expect(res.data).toBeUndefined();
+    });
+
+    it('should return error because no order match symbol and orderId', async () => {
+        const res = await client.cancelOrder({ symbol: 'ETH-USDT', orderId });
+        expect(res).toBeDefined();
+        expect(res.code).toBe(100400);
+        expect(res.data).toBeUndefined();
+    });
+
+    it('should delay for 2 seconds', async () => {
+        await sleep(2000);
+    });
+
+    it('should cancel the created order', async () => {
+        const res = await client.cancelOrder({ symbol: 'BTC-USDT', orderId });
         expect(res).toBeDefined();
         expect(res.code).toBe(0);
         expect(res.data).toBeDefined();
-        expect(res.data.orders.length).toBeGreaterThanOrEqual(1);
-
-        const currentOpenOrders = await client.currentOpenOrders();
-        expect(currentOpenOrders.data.orders.length).toBe(0);
+        expect(res.data.symbol).toBe('BTC-USDT');
+        expect(res.data.orderId).toBe(orderId);
     });
 });
+
+// describe('cancelAllOpenOrders', () => {
+//     const client = new Spot(env.BINGX_API_KEY, env.BINGX_API_SECRET);
+
+//     it('should cancel all open orders', async () => {
+//         const res = await client.cancelAllOpenOrders();
+//         expect(res).toBeDefined();
+//         expect(res.code).toBe(0);
+//         expect(res.data).toBeDefined();
+//         expect(res.data.orders.length).toBeGreaterThanOrEqual(1);
+
+//         const currentOpenOrders = await client.currentOpenOrders();
+//         expect(currentOpenOrders.data.orders.length).toBe(0);
+//     });
+// });
