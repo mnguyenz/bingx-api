@@ -54,7 +54,7 @@ export function mixinMarket<T extends Constructor>(base: T): Constructor<MarketM
                 symbol: params.symbol.toUpperCase()
             });
             const response = await this.makeRequest(HttpMethodEnum.GET, url);
-            if (response.code === 0) {
+            if (response.code === 0 && response.data?.bids?.length) {
                 const parsedBids = response.data.bids.map((order) => [parseFloat(order[0]), parseFloat(order[1])]);
                 const parsedAsks = response.data.asks.map((order) => [parseFloat(order[0]), parseFloat(order[1])]);
                 const parsedResponse = {

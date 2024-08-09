@@ -7,6 +7,10 @@ export type HttpRequestConfig = {
     url: string;
 };
 
+export type BaseParam = {
+    recvWindow?: number;
+};
+
 export type BaseResponse = {
     code: number;
     msg?: string;

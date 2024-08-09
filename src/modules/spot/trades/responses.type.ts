@@ -8,10 +8,10 @@ export type PlaceOrderResponse = {
 
 // 3.
 export type CancelOrderResponse = {
-    data?: CancelOrderData;
+    data?: CancelOrderDataResponse;
 } & BaseResponse;
 
-export type CancelOrderData = {
+export type CancelOrderDataResponse = {
     symbol: string;
     orderId: bigint;
     price: number;
@@ -46,6 +46,13 @@ export type SinglePlaceOrderResponse = {
     clientOrderID: string;
 };
 
+// 7.
+export type QueryOrderDetailsResponse = {
+    data: {
+        feeAsset: string;
+    } & SingleOrderResponse;
+} & BaseResponse;
+
 // 8, 9.
 export type OrdersResponse = {
     data?: {
@@ -53,10 +60,18 @@ export type OrdersResponse = {
     };
 } & BaseResponse;
 
-export type SingleOrderResponse = CancelOrderData & {
+export type SingleOrderResponse = CancelOrderDataResponse & {
     time: number;
     updateTime: number;
     origQuoteOrderQty: number;
     clientOrderID: string;
     fee: number;
 };
+
+// 11.
+export type QueryTradingCommissionRateResponse = {
+    data: {
+        takerCommissionRate: number;
+        makerCommissionRate: number;
+    };
+} & BaseResponse;

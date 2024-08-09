@@ -1,4 +1,5 @@
 import { OrderStatusEnum, OrderSideEnum, OrderTypeEnum } from '~enums';
+import { BaseParam } from '~helpers/base.type';
 
 // 1.
 export type PlaceOrderParams = {
@@ -12,16 +13,19 @@ export type PlaceOrderParams = {
     newClientOrderId?: string;
     timeInForce?: string;
     recvWindow?: number;
-};
+} & BaseParam;
 
 // 3.
 export type CancelOrderParams = {
+    cancelRestrictions?: OrderStatusEnum;
+} & QueryOrderDetailsParams;
+
+// 7.
+export type QueryOrderDetailsParams = {
     symbol: string;
     orderId?: bigint;
     clientOrderID?: string;
-    cancelRestrictions?: OrderStatusEnum;
-    recvWindow?: number;
-};
+} & BaseParam;
 
 // 9.
 export type QueryOrderHistoryParams = {
@@ -33,4 +37,9 @@ export type QueryOrderHistoryParams = {
     pageSize?: number;
     status?: OrderStatusEnum;
     type?: OrderTypeEnum;
-};
+} & BaseParam;
+
+// 11.
+export type SymbolRequiredParams = {
+    symbol: string;
+} & BaseParam;

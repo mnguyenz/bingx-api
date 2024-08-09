@@ -76,6 +76,8 @@ Thank you so much for all the support
         - [x]   1. Place Order
         - [x]   3. Cancel Order
         - [x]   5. Cancel all Open Orders on a Symbol
+        - [x]   7. Query Order Details
         - [x]   8. Current Open Orders
         - [x]   9. Query Order History
+        - [x]   11. Query Trading Commission Rate
 

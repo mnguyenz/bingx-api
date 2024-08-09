@@ -76,8 +76,8 @@ describe('orderBook', () => {
     it('should return null data', async () => {
         const res = await client.orderBook({ symbol: 'FAKE-SYMBOL' });
         expect(res).toBeDefined();
-        expect(res.data.bids.length).toBe(0);
-        expect(res.data.asks.length).toBe(0);
+        expect(res.code).toBe(0);
+        expect(res.data).toBe('depth is not ready yet.');
     });
 
     it('should return error', async () => {

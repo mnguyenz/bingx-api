@@ -48,13 +48,13 @@ export type KlineCandlestickDataResponse = {
 } & BaseResponse;
 
 export type SingleCandlestickDataResponse = [
-    bigint, // Candlestick chart open time
+    number, // Candlestick chart open time
     number, // Open price
     number, // Max price
     number, // Min price
     number, // Close price
     number, // Trading volume (number of coins)
-    bigint, // Candlestick chart close time
+    number, // Candlestick chart close time
     number // Volume
 ];
 
