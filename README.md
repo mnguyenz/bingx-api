@@ -12,7 +12,7 @@ npm install bingx-trading-api
 
 ## Documentation
 
-Install via npm
+Init client
 ```bash
 const client = new Spot(API_KEY, API_SECRET);
 ```
@@ -44,13 +44,11 @@ For support my efforts, please register with my referral links:
 
 Or buy me a coffee
 
-    BTC (BEP20): 0x98dca74ec33d7fe5d11e42689914d3041f65f4fc
-    ETH (ERC20): 0x98dca74ec33d7fe5d11e42689914d3041f65f4fc
-    ETH (BEP20): 0x98dca74ec33d7fe5d11e42689914d3041f65f4fc
-    ETH (Optimism) 0x98dca74ec33d7fe5d11e42689914d3041f65f4fc
-    USDT (TRC20): TVkJAmdh7UcrsGG1EjXsmSroXakCGn1LXT
-    USDT (BEP20): 0x98dca74ec33d7fe5d11e42689914d3041f65f4fc
-    USDT (Optimism): 0x98dca74ec33d7fe5d11e42689914d3041f65f4fc
+    BTC (BEP20): 0x613c399b33c33c0445dc802592580695a4d41134
+    ETH (ERC20): 0x613c399b33c33c0445dc802592580695a4d41134
+    ETH (BEP20): 0x613c399b33c33c0445dc802592580695a4d41134
+    USDT (TRC20): TLtBXUHcUYSJg4pftQbbJ2ZuvM22C1p8nG
+    USDT (BEP20): 0x613c399b33c33c0445dc802592580695a4d41134
 
 Thank you so much for all the support
 ## Features

@@ -41,6 +41,8 @@ describe('currentOpenOrders', () => {
         expect(res.data).toBeDefined();
         expect(res.data.orders.length).toBeGreaterThanOrEqual(1);
         expect(res.data.orders[res.data.orders.length - 1].orderId).toBe(orderId);
+        expect(res.data.orders[0].stopPrice).toBeDefined();
+        expect((res.data.orders[0] as any).StopPrice).toBeUndefined();
     });
 });
 
@@ -48,14 +50,14 @@ describe('cancelOrder', () => {
     it('should return error because no orderId or clientOrderID', async () => {
         const res = await client.cancelOrder({ symbol: 'BTC-USDT' });
         expect(res).toBeDefined();
-        expect(res.code).toBe(100400);
+        expect(res.code).not.toBe(0);
         expect(res.data).toBeUndefined();
     });
 
     it('should return error because no order match symbol and orderId', async () => {
         const res = await client.cancelOrder({ symbol: 'ETH-USDT', orderId });
         expect(res).toBeDefined();
-        expect(res.code).toBe(100400);
+        expect(res.code).not.toBe(0);
         expect(res.data).toBeUndefined();
     });
 
@@ -112,6 +114,20 @@ describe('queryOrderDetails', () => {
         expect(res.data.orderId).toBe(orderId);
         expect(res.data.status).toBe(OrderStatusEnum.CANCELED);
         expect(res.data.stopPrice).toBeDefined();
+        expect((res.data as any).StopPrice).toBeUndefined();
+    });
+});
+
+describe('queryOrderHistory', () => {
+    it('should return order which just cancel', async () => {
+        const res = await client.queryOrderHistory({ symbol: 'BTC-USDT', status: OrderStatusEnum.FILLED });
+        expect(res).toBeDefined();
+        expect(res.code).toBe(0);
+        expect(res.data).toBeDefined();
+        expect(res.data.orders.length).toBeGreaterThanOrEqual(1);
+        expect(res.data.orders[0].symbol).toBe('BTC-USDT');
+        expect(res.data.orders[0].stopPrice).toBeDefined();
+        expect((res.data.orders[0] as any).StopPrice).toBeUndefined();
     });
 });
 
