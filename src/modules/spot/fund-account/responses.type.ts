@@ -1,4 +1,4 @@
-import { AssetTransferTypeEnum } from '~enums';
+import { AccountTypeEnum, AssetTransferTypeEnum } from '~enums';
 import { BaseResponse } from '~helpers/base.type';
 
 // 1.
@@ -27,4 +27,14 @@ export type SingleAssetTransferRecordResponse = {
     status: string;
     tranId: number;
     timestamp: number;
+};
+
+// 6.
+export type AssetOverviewResponse = {
+    data: [
+        {
+            accountType: AccountTypeEnum;
+            usdtBalance: string;
+        }
+    ];
 };

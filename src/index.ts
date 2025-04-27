@@ -6,7 +6,8 @@ import {
     OrderStatusEnum,
     AssetTransferTypeEnum,
     IntervalEnum,
-    OrderBookAggregationEnum
+    OrderBookAggregationEnum,
+    AccountTypeEnum
 } from './enums';
 import {
     AssetTransferRecordsParams,
@@ -61,6 +62,7 @@ export {
     AssetTransferTypeEnum,
     IntervalEnum,
     OrderBookAggregationEnum,
+    AccountTypeEnum,
 
     // Params
     AssetTransferRecordsParams,

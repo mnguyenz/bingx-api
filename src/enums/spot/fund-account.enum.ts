@@ -14,3 +14,14 @@ export enum AssetTransferTypeEnum {
     CTRADING_SFUTURES = 'CTRADING_SFUTURES',
     CTRADING_PFUTURES = 'CTRADING_PFUTURES'
 }
+
+export enum AccountTypeEnum {
+    SPOT = 'sopt',
+    WEALTH = 'eran',
+    STANDARD_FUTURES = 'stdFutures',
+    COIN_BASE = 'coinMPerp',
+    USDT_BASE = 'USDTMPerp',
+    COPY_TRADING = 'copyTrading',
+    GRID = 'grid',
+    C2C = 'c2c'
+}

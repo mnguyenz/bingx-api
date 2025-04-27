@@ -21,6 +21,7 @@ export const SPOT_CURRENT_OPEN_ORDERS_URL = '/openApi/spot/v1/trade/openOrders';
 export const SPOT_QUERY_ORDER_HISTORY_URL = '/openApi/spot/v1/trade/historyOrders';
 export const SPOT_QUERY_TRADING_COMMISSION_RATE_URL = '/openApi/spot/v1/user/commissionRate';
 
+// Fund Account
 export const SPOT_QUERY_ASSETS_URL = '/openApi/spot/v1/account/balance';
-
 export const SPOT_ASSET_TRANSFER_RECORDS_URL = '/openApi/api/v3/asset/transfer';
+export const SPOT_ASSET_OVERVIEW_URL = '/openApi/account/v1/allAccountBalance';
