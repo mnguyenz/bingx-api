@@ -55,10 +55,10 @@ describe('orderBook', () => {
         expect(res.data).toBeDefined();
         expect(res.data.bids.length).toBe(20);
         expect(res.data.asks.length).toBe(20);
-        expect(res.data.bids[0][0]).toBeGreaterThan(0);
-        expect(res.data.bids[0][1]).toBeGreaterThan(0);
-        expect(res.data.asks[0][0]).toBeGreaterThan(0);
-        expect(res.data.asks[0][1]).toBeGreaterThan(0);
+        expect(parseFloat(res.data.bids[0][0])).toBeGreaterThan(0);
+        expect(parseFloat(res.data.bids[0][1])).toBeGreaterThan(0);
+        expect(parseFloat(res.data.asks[0][0])).toBeGreaterThan(0);
+        expect(parseFloat(res.data.asks[0][1])).toBeGreaterThan(0);
     });
 
     it('should return list 10 recent trades', async () => {
@@ -67,10 +67,10 @@ describe('orderBook', () => {
         expect(res.data).toBeDefined();
         expect(res.data.bids.length).toBe(10);
         expect(res.data.asks.length).toBe(10);
-        expect(res.data.bids[0][0]).toBeGreaterThan(0);
-        expect(res.data.bids[0][1]).toBeGreaterThan(0);
-        expect(res.data.asks[0][0]).toBeGreaterThan(0);
-        expect(res.data.asks[0][1]).toBeGreaterThan(0);
+        expect(parseFloat(res.data.bids[0][0])).toBeGreaterThan(0);
+        expect(parseFloat(res.data.bids[0][1])).toBeGreaterThan(0);
+        expect(parseFloat(res.data.asks[0][0])).toBeGreaterThan(0);
+        expect(parseFloat(res.data.asks[0][1])).toBeGreaterThan(0);
     });
 
     it('should return null data', async () => {
@@ -267,10 +267,10 @@ describe('symbolOrderBookTicker', () => {
         expect(res.data).toBeDefined();
         expect(res.data[0]).toBeDefined();
         expect(res.data[0].symbol).toEqual('BTC-USDT');
-        expect(res.data[0].bidPrice).toBeGreaterThan(0);
-        expect(res.data[0].bidVolume).toBeGreaterThan(0);
-        expect(res.data[0].askPrice).toBeGreaterThan(0);
-        expect(res.data[0].askVolume).toBeGreaterThan(0);
+        expect(parseFloat(res.data[0].bidPrice)).toBeGreaterThan(0);
+        expect(parseFloat(res.data[0].bidVolume)).toBeGreaterThan(0);
+        expect(parseFloat(res.data[0].askPrice)).toBeGreaterThan(0);
+        expect(parseFloat(res.data[0].askVolume)).toBeGreaterThan(0);
     });
 });
 

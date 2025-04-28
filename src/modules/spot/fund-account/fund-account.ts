@@ -13,33 +13,14 @@ export function mixinFundAccount<T extends Constructor>(base: T): Constructor<Fu
     return class extends base {
         async queryAssets(): Promise<QueryAssetsResponse> {
             const url = this.prepareSignedPath(SPOT_QUERY_ASSETS_URL);
-            const response = await this.makeRequest(HttpMethodEnum.GET, url);
-            const parseResponse = {
-                ...response,
-                data: {
-                    balances: response.data?.balances?.map((balance) => ({
-                        asset: balance.asset,
-                        free: parseFloat(balance.free),
-                        locked: parseFloat(balance.locked)
-                    }))
-                }
-            };
-            return parseResponse;
+            return this.makeRequest(HttpMethodEnum.GET, url);
         }
 
         async assetTransferRecords(
             assetTransferRecords: AssetTransferRecordsParams
         ): Promise<AssetTransferRecordsResponse> {
             const url = this.prepareSignedPath(SPOT_ASSET_TRANSFER_RECORDS_URL, assetTransferRecords);
-            const response = await this.makeRequest(HttpMethodEnum.GET, url);
-            const parseResponse = {
-                ...response,
-                rows: response?.rows?.map((row) => ({
-                    ...row,
-                    amount: parseFloat(row.amount)
-                }))
-            };
-            return parseResponse;
+            return this.makeRequest(HttpMethodEnum.GET, url);
         }
 
         async assetOverview(assetOverview: AssetOverviewParams): Promise<AssetOverviewResponse> {

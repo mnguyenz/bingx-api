@@ -34,22 +34,7 @@ export function mixinTrade<T extends Constructor>(base: T): Constructor<TradeMet
                 ...params,
                 symbol: params.symbol.toUpperCase()
             });
-            const response = await this.makeRequest(HttpMethodEnum.POST, url);
-            if (!response.data) {
-                return response;
-            }
-            const parseResponse = {
-                ...response,
-                data: {
-                    ...response.data,
-                    price: parseFloat(response.data.price),
-                    stopPrice: parseFloat(response.data.stopPrice),
-                    origQty: parseFloat(response.data.origQty),
-                    executedQty: parseFloat(response.data.executedQty),
-                    cummulativeQuoteQty: parseFloat(response.data.cummulativeQuoteQty)
-                }
-            };
-            return parseResponse;
+            return this.makeRequest(HttpMethodEnum.POST, url);
         }
 
         async cancelOrder(params: CancelOrderParams): Promise<CancelOrderResponse> {
@@ -57,22 +42,7 @@ export function mixinTrade<T extends Constructor>(base: T): Constructor<TradeMet
                 ...params,
                 symbol: params.symbol.toUpperCase()
             });
-            const response = await this.makeRequest(HttpMethodEnum.POST, url);
-            if (!response.data) {
-                return response;
-            }
-            const parseResponse = {
-                ...response,
-                data: {
-                    ...response.data,
-                    price: parseFloat(response.data.price),
-                    stopPrice: parseFloat(response.data.stopPrice),
-                    origQty: parseFloat(response.data.origQty),
-                    executedQty: parseFloat(response.data.executedQty),
-                    cummulativeQuoteQty: parseFloat(response.data.cummulativeQuoteQty)
-                }
-            };
-            return parseResponse;
+            return this.makeRequest(HttpMethodEnum.POST, url);
         }
 
         async cancelAllOpenOrders(params: SpotTradingSymbolsParams): Promise<PlaceOrdersResponse> {
@@ -80,47 +50,12 @@ export function mixinTrade<T extends Constructor>(base: T): Constructor<TradeMet
                 ...params,
                 symbol: params?.symbol?.toUpperCase()
             });
-            const response = await this.makeRequest(HttpMethodEnum.POST, url);
-            if (!response.data) {
-                return response;
-            }
-            const parseResponse = {
-                ...response,
-                data: {
-                    orders: response.data?.orders?.map((order) => {
-                        return {
-                            ...order,
-                            price: parseFloat(order.price),
-                            stopPrice: parseFloat(order.stopPrice),
-                            origQty: parseFloat(order.origQty),
-                            executedQty: parseFloat(order.executedQty),
-                            cummulativeQuoteQty: parseFloat(order.cummulativeQuoteQty)
-                        };
-                    })
-                }
-            };
-            return parseResponse;
+            return this.makeRequest(HttpMethodEnum.POST, url);
         }
 
         async queryOrderDetails(params?: QueryOrderDetailsParams): Promise<QueryOrderDetailsResponse> {
             const url = this.prepareSignedPath(SPOT_QUERY_ORDER_DETAILS_URL, { ...params });
-            const response = await this.makeRequest(HttpMethodEnum.GET, url);
-            if (!response.data) {
-                return response;
-            }
-            const parseResponse = {
-                ...response,
-                data: {
-                    ...response.data,
-                    price: parseFloat(response.data.price),
-                    stopPrice: parseFloat(response.data.StopPrice),
-                    origQty: parseFloat(response.data.origQty),
-                    executedQty: parseFloat(response.data.executedQty),
-                    cummulativeQuoteQty: parseFloat(response.data.cummulativeQuoteQty)
-                }
-            };
-            delete parseResponse.data.StopPrice;
-            return parseResponse;
+            return this.makeRequest(HttpMethodEnum.GET, url);
         }
 
         async currentOpenOrders(params?: SpotTradingSymbolsParams): Promise<OrdersResponse> {
@@ -128,29 +63,7 @@ export function mixinTrade<T extends Constructor>(base: T): Constructor<TradeMet
                 ...params,
                 symbol: params?.symbol?.toUpperCase()
             });
-            const response = await this.makeRequest(HttpMethodEnum.GET, url);
-            if (!response.data) {
-                return response;
-            }
-            const parseResponse = {
-                ...response,
-                data: {
-                    orders: response.data.orders?.map((order) => {
-                        // eslint-disable-next-line @typescript-eslint/naming-convention, @typescript-eslint/no-unused-vars
-                        const { StopPrice, ...rest } = order;
-                        return {
-                            ...rest,
-                            price: parseFloat(order.price),
-                            stopPrice: parseFloat(StopPrice),
-                            origQty: parseFloat(order.origQty),
-                            executedQty: parseFloat(order.executedQty),
-                            cummulativeQuoteQty: parseFloat(order.cummulativeQuoteQty),
-                            origQuoteOrderQty: parseFloat(order.origQuoteOrderQty)
-                        };
-                    })
-                }
-            };
-            return parseResponse;
+            return this.makeRequest(HttpMethodEnum.GET, url);
         }
 
         async queryOrderHistory(params?: QueryOrderHistoryParams): Promise<OrdersResponse> {
@@ -158,29 +71,7 @@ export function mixinTrade<T extends Constructor>(base: T): Constructor<TradeMet
                 ...params,
                 symbol: params?.symbol?.toUpperCase()
             });
-            const response = await this.makeRequest(HttpMethodEnum.GET, url);
-            if (!response.data) {
-                return response;
-            }
-            const parseResponse = {
-                ...response,
-                data: {
-                    orders: response.data?.orders?.map((order) => {
-                        // eslint-disable-next-line @typescript-eslint/naming-convention, @typescript-eslint/no-unused-vars
-                        const { StopPrice, ...rest } = order;
-                        return {
-                            ...rest,
-                            price: parseFloat(order.price),
-                            stopPrice: parseFloat(StopPrice),
-                            origQty: parseFloat(order.origQty),
-                            executedQty: parseFloat(order.executedQty),
-                            cummulativeQuoteQty: parseFloat(order.cummulativeQuoteQty),
-                            origQuoteOrderQty: parseFloat(order.origQuoteOrderQty)
-                        };
-                    })
-                }
-            };
-            return parseResponse;
+            return this.makeRequest(HttpMethodEnum.GET, url);
         }
 
         async queryTradingCommissionRate(params: SymbolRequiredParams): Promise<QueryTradingCommissionRateResponse> {

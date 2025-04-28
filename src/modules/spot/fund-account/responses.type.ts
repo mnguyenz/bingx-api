@@ -10,8 +10,8 @@ export type QueryAssetsResponse = {
 
 export type SingleQueryAssetResponse = {
     asset: string;
-    free: number;
-    locked: number;
+    free: string;
+    locked: string;
 };
 
 // 3.
@@ -22,7 +22,7 @@ export type AssetTransferRecordsResponse = {
 
 export type SingleAssetTransferRecordResponse = {
     asset: string;
-    amount: number;
+    amount: string;
     type: AssetTransferTypeEnum;
     status: string;
     tranId: number;

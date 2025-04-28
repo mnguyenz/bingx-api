@@ -14,11 +14,11 @@ export type CancelOrderResponse = {
 export type CancelOrderDataResponse = {
     symbol: string;
     orderId: bigint;
-    price: number;
-    stopPrice: number;
-    origQty: number;
-    executedQty: number;
-    cummulativeQuoteQty: number;
+    price: string;
+    stopPrice: string;
+    origQty: string;
+    executedQty: string;
+    cummulativeQuoteQty: string;
     status: OrderStatusEnum;
     type: OrderTypeEnum;
     side: OrderSideEnum;
@@ -35,11 +35,11 @@ export type SinglePlaceOrderResponse = {
     symbol: string;
     orderId: bigint;
     transactTime: number;
-    price: number;
-    stopPrice: number;
-    origQty: number;
-    executedQty: number;
-    cummulativeQuoteQty: number;
+    price: string;
+    stopPrice: string;
+    origQty: string;
+    executedQty: string;
+    cummulativeQuoteQty: string;
     status: OrderStatusEnum;
     type: OrderTypeEnum;
     side: OrderSideEnum;
@@ -63,7 +63,7 @@ export type OrdersResponse = {
 export type SingleOrderResponse = CancelOrderDataResponse & {
     time: number;
     updateTime: number;
-    origQuoteOrderQty: number;
+    origQuoteOrderQty: string;
     clientOrderID: string;
     fee: number;
 };

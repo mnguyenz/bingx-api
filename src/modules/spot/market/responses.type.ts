@@ -36,8 +36,8 @@ export type SingleRecentTradeResponse = {
 // 3.
 export type OrderBookResponse = {
     data?: {
-        bids: number[][];
-        asks: number[][];
+        bids: string[][];
+        asks: string[][];
         ts: number;
     };
 } & BaseResponse;
@@ -100,8 +100,8 @@ export type SinglePriceTickerResponse = {
     symbol: string;
     trades: {
         tradeId: string;
-        price: number;
-        volume: number;
+        price: string;
+        volume: string;
     }[];
 };
 
@@ -114,10 +114,10 @@ export type SingleOrderBookTickerResponse = {
     eventType: string;
     time: number;
     symbol: string;
-    bidPrice: number;
-    bidVolume: number;
-    askPrice: number;
-    askVolume: number;
+    bidPrice: string;
+    bidVolume: string;
+    askPrice: string;
+    askVolume: string;
 };
 
 // 10.

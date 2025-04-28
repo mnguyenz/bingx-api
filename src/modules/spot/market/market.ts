@@ -45,7 +45,7 @@ export function mixinMarket<T extends Constructor>(base: T): Constructor<MarketM
                 ...params,
                 symbol: params.symbol.toUpperCase()
             });
-            return await this.makeRequest(HttpMethodEnum.GET, url);
+            return this.makeRequest(HttpMethodEnum.GET, url);
         }
 
         async orderBook(params: RecentTradesListParams): Promise<OrderBookResponse> {
@@ -53,22 +53,7 @@ export function mixinMarket<T extends Constructor>(base: T): Constructor<MarketM
                 ...params,
                 symbol: params.symbol.toUpperCase()
             });
-            const response = await this.makeRequest(HttpMethodEnum.GET, url);
-            if (response.code === 0 && response.data?.bids?.length) {
-                const parsedBids = response.data.bids.map((order) => [parseFloat(order[0]), parseFloat(order[1])]);
-                const parsedAsks = response.data.asks.map((order) => [parseFloat(order[0]), parseFloat(order[1])]);
-                const parsedResponse = {
-                    ...response,
-                    data: {
-                        ...response.data.data,
-                        bids: parsedBids,
-                        asks: parsedAsks
-                    }
-                };
-                return parsedResponse;
-            } else {
-                return response;
-            }
+            return this.makeRequest(HttpMethodEnum.GET, url);
         }
 
         async klineCandlestickData(params: KlineCandlestickDataParams): Promise<KlineCandlestickDataResponse> {
@@ -101,37 +86,14 @@ export function mixinMarket<T extends Constructor>(base: T): Constructor<MarketM
             const url = this.preparePath(SPOT_SYMBOL_PRICE_TICKER_URL, {
                 symbol: params?.symbol?.toUpperCase()
             });
-            const response = await this.makeRequest(HttpMethodEnum.GET, url);
-            const parsedResponse = {
-                ...response,
-                data: response.data?.map((item) => ({
-                    ...item,
-                    trades: item.trades?.map((trade) => ({
-                        ...trade,
-                        price: parseFloat(trade.price),
-                        volume: parseFloat(trade.volume)
-                    }))
-                }))
-            };
-            return parsedResponse;
+            return this.makeRequest(HttpMethodEnum.GET, url);
         }
 
         async symbolOrderBookTicker(params?: SpotTradingSymbolsParams): Promise<SymbolOrderBookTickerResponse> {
             const url = this.preparePath(SPOT_SYMBOL_ORDER_BOOK_TICKER_URL, {
                 symbol: params?.symbol?.toUpperCase()
             });
-            const response = await this.makeRequest(HttpMethodEnum.GET, url);
-            const parsedResponse = {
-                ...response,
-                data: response.data?.map((bookTicker) => ({
-                    ...bookTicker,
-                    bidPrice: parseFloat(bookTicker.bidPrice),
-                    bidVolume: parseFloat(bookTicker.bidVolume),
-                    askPrice: parseFloat(bookTicker.askPrice),
-                    askVolume: parseFloat(bookTicker.askVolume)
-                }))
-            };
-            return parsedResponse;
+            return this.makeRequest(HttpMethodEnum.GET, url);
         }
 
         async historicalKline(params: KlineCandlestickDataParams): Promise<KlineCandlestickDataResponse> {
